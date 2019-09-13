@@ -21,3 +21,6 @@
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.dll
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.pdb
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.csproj.CopyComplete
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Layout.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/_ViewStart.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/_ViewImports.g.cshtml.cs
