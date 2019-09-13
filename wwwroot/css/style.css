@@ -204,3 +204,19 @@ p.copyright {
 .credits a{
     color: #fff;
 }
+
+.Gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Gallery .flex-img{
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+

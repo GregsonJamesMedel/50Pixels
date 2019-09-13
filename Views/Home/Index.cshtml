@@ -1,1 +1,10 @@
-<h1>Hello from Home/Index</h1>
+@model HomeIndexViewModel
+
+<h2 class="text-center">Free Stock Photos</h2>
+
+<div class="Gallery">
+    @foreach(var photo in Model.Photos)
+    {
+        <img class="flex-img" src="@photo.Path">
+    }
+</div>
