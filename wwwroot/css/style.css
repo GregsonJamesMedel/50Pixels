@@ -305,3 +305,18 @@ p.copyright {
   {
     color: red;
   }
+
+  #uploadWrapper
+  {
+    margin-top: 70px;
+  }
+
+  #uploadWrapper:after
+  {
+    margin-top: 70px;
+  }
+
+  #uploadsubmit
+  {
+    margin-top: 20px;
+  }

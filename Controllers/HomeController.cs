@@ -32,7 +32,7 @@ namespace _50Pixels.Controllers
 
             var model = new HomeIndexViewModel();
             model.Photos = photos;
-            ViewBag.Title = "50 Pixels: Index";
+            ViewBag.Title = "Index";
             return View(model);
         }
     }
