@@ -26,23 +26,23 @@ namespace _50Pixels.Controllers
         [HttpPost]
         public IActionResult Upload(UploadPhotoViewModel vm)
         {
-            if(ModelState.IsValid)
-            {   
+            if (ModelState.IsValid)
+            {
                 string uniqueFileName = "";
 
-                if(vm.Photo != null)
+                if (vm.Photo != null)
                 {
-                    string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath,"Photos");
+                    string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath, "Photos");
                     uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFoler,uniqueFileName);
-                    vm.Photo.CopyTo(new FileStream(filePath,FileMode.Create));
+                    string filePath = Path.Combine(uploadsFoler, uniqueFileName);
+                    vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
-            
+
             ViewBag.Title = "Upload Photo";
-            return View();
-            
+            return View(vm);
+
         }
     }
 }
