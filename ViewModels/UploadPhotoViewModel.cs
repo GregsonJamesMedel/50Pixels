@@ -8,8 +8,7 @@ namespace _50Pixels.ViewModels
         [Required]
         public string Title { get; set; }
 
-        [Required]
-        [RegularExpression(@"/.*\.(gif|jpe?g|bmp|png)$/igm",ErrorMessage="only image files are allowed to upload")]
+        //[RegularExpression("(.*png$)|(.*jpg$)|(.*jpeg$)",ErrorMessage="only image files are allowed to upload")]
         public IFormFile Photo { get; set; }
     }
 }

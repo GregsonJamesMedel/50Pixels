@@ -1,11 +1,20 @@
 using System.Collections.Generic;
+using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace _50Pixels.Controllers
 {
-    public class Home : Controller
+    public class HomeController : Controller
     {
+        private readonly IPhotoService _photoService;
+
+        public HomeController(IPhotoService photoService)
+        {
+            this._photoService = photoService;
+        }
+        
         public IActionResult Index()
         {
             var photos = new List<DisplayPhotoViewModel>()
@@ -31,7 +40,8 @@ namespace _50Pixels.Controllers
             };
 
             var model = new HomeIndexViewModel();
-            model.Photos = photos;
+            model.Photos = _photoService.RetrieveAllPhotos();
+            
             ViewBag.Title = "Index";
             return View(model);
         }
