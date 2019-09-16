@@ -3,17 +3,21 @@ using System.IO;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
-
+using _50Pixels.Services;
+using _50Pixels.Models;
 
 namespace _50Pixels.Controllers
 {
     public class PhotosController : Controller
     {
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IPhotoService _photoServeice;
 
-        public PhotosController(IHostingEnvironment hostingEnvironment)
+        public PhotosController(IHostingEnvironment hostingEnvironment,
+                                IPhotoService photoService)
         {
             this._hostingEnvironment = hostingEnvironment;
+            this._photoServeice = photoService;
         }
 
         [HttpGet]
@@ -37,6 +41,13 @@ namespace _50Pixels.Controllers
                     string filePath = Path.Combine(uploadsFoler, uniqueFileName);
                     vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
+
+                var photo = new Photo(){
+                    Title = vm.Title,
+                    Path = uniqueFileName
+                };
+
+                _photoServeice.SavePhoto(photo);
                 return RedirectToAction("Index", "Home");
             }
 
