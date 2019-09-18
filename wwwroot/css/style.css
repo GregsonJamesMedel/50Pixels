@@ -306,7 +306,7 @@ p.copyright {
     color: red;
   }
 
-  #uploadWrapper
+  #uploadWrapper, #margintop70
   {
     margin-top: 70px;
   }
