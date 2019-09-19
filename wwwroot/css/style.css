@@ -306,12 +306,12 @@ p.copyright {
     color: red;
   }
 
-  #uploadWrapper
+  #uploadWrapper, #margintop70
   {
     margin-top: 70px;
   }
 
-  #uploadWrapper:after
+  #uploadWrapper:after, #margintop70:after
   {
     margin-top: 70px;
   }

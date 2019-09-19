@@ -2,6 +2,7 @@
 using _50Pixels.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,8 @@ namespace _50Pixels
             services.AddDbContext<AppDbContext>(options => 
             options.UseMySql(this._config.GetConnectionString("50PixelsDb")));
 
+            services.AddIdentity<IdentityUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+
             services.AddScoped<IPhotoService,PhotoRepository>();
         }
 
@@ -37,6 +40,7 @@ namespace _50Pixels
             }
 
             app.UseStaticFiles();
+            app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
         }
     }

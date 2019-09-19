@@ -23,8 +23,13 @@ using _50Pixels.Models;
 
 #line default
 #line hidden
+#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"577ee6d960967adf6173fe6b40e0f02273291608", @"/Views/Shared/_Header.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"23b19af37fe93ac11f3ffe0a8b474d4ade33003b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6667700d2c8b0eaa810dd581bdccc3daf9d9bf26", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Header : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("form-inline signup"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -56,7 +61,7 @@ using _50Pixels.Models;
             WriteLiteral("  <div id=\"header\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-6\">\n          <h1>Your Favourite Source of Free Stock Photos</h1>\n          ");
             EndContext();
             BeginContext(175, 298, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "577ee6d960967adf6173fe6b40e0f022732916084141", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "577ee6d960967adf6173fe6b40e0f022732916084282", async() => {
                 BeginContext(220, 246, true);
                 WriteLiteral("\n            <div class=\"form-group\">\n              <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Search Photos\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-theme\">Search</button>\n          ");
                 EndContext();

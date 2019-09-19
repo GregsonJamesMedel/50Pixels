@@ -2976,6 +2976,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Account/SignIn.cshtml",
+      "TargetPath": "Views/Account/SignIn.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -2983,6 +2988,11 @@
     {
       "FilePath": "Views/Shared/_NavBar.cshtml",
       "TargetPath": "Views/Shared/_NavBar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/SignUp.cshtml",
+      "TargetPath": "Views/Account/SignUp.cshtml",
       "FileKind": "mvc"
     },
     {
