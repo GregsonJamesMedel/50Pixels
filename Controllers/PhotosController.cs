@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Hosting;
 using _50Pixels.Services;
 using _50Pixels.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _50Pixels.Controllers
 {
+    [Authorize]
     public class PhotosController : Controller
     {
         private readonly IHostingEnvironment _hostingEnvironment;

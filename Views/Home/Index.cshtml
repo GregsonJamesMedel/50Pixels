@@ -30,7 +30,7 @@
 <div class="Gallery">
     @foreach(var photo in Model.Photos)
     {
-        <img class="flex-img" src="~/Photos/@photo.Path" data-title="@photo.Title" asp-append-version="true">
+        <img class="flex-img" src="~/Photos/@photo.Path" alt="@photo.Title" data-title="@photo.Title" asp-append-version="true">
     }
 </div>
 </div>
