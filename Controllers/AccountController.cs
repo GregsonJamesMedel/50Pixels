@@ -56,6 +56,31 @@ namespace _50Pixels.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index","Home");
         }
+
+        [HttpGet]
+        public IActionResult SignIn()
+        {
+            ViewBag.Title = "Sign In";
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignIn(AccountSignInViewModel vm)
+        {
+            var user = new IdentityUser()
+            {
+                Email = vm.Email
+            };
+
+            if(ModelState.IsValid)
+            {
+                await _signInManager.PasswordSignInAsync(vm.Email,vm.Password,isPersistent: false,false);
+                return RedirectToAction("Index","Home");
+            }
+
+            ViewBag.Title = "Sign In";
+            return View(vm);
+        }
     
     }
 }
