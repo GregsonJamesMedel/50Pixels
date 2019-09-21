@@ -21,6 +21,18 @@ namespace _50Pixels.Controllers
             this._hostingEnvironment = hostingEnvironment;
             this._photoServeice = photoService;
         }
+        [AllowAnonymous]
+        public IActionResult ViewPhoto(int id)
+        {
+            var photo = _photoServeice.GetPhotoById(id);
+            var vm = new ViewPhotoViewModel()
+            {
+                Id = photo.Id,
+                Title = photo.Title,
+                Path = photo.Path
+            };
+            return View(vm);
+        }
 
         [HttpGet]
         public IActionResult Upload()

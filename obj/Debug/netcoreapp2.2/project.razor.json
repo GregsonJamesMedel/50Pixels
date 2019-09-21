@@ -2986,6 +2986,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Photos/ViewPhoto.cshtml",
+      "TargetPath": "Views/Photos/ViewPhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_NavBar.cshtml",
       "TargetPath": "Views/Shared/_NavBar.cshtml",
       "FileKind": "mvc"

@@ -1,0 +1,25 @@
+@model ViewPhotoViewModel
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div class="container" id="margintop70">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">@Model.Title</h2>
+            <a asp-controller="Account" asp-action="Profile" class="text-center">
+                <h4>
+                    <i class="fa fa-camera"></i> 
+                    Gregson Medel
+                </h4>
+            </a>
+            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" id="viewedPhoto" asp-append-version="true">
+            <div id="margin20">
+                <a class="aColor" href='javascript:history.go(-1)'>Back</a> |
+                <a class="aColor" asp-controller="Photos" asp-action="Like" asp-route-id="@Model.Id">Like</a> |
+                <a class="aColor" href='javascript:history.go(-1)'>Download</a>
+                <span class="pull-right">Likes: 20000 | Views: 23000</span>
+            </div>
+        </div>
+    </div>
+</div>

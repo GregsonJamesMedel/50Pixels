@@ -29,6 +29,8 @@ namespace _50Pixels
 
             services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/SignIn");
+
             services.AddScoped<IPhotoService,PhotoRepository>();
         }
 
