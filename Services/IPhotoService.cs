@@ -6,7 +6,8 @@ namespace _50Pixels.Services
     public interface IPhotoService
     {
         void SavePhoto(Photo photo);
-        IEnumerable<Photo> RetrieveAllPhotos();
         Photo GetPhotoById(int id);
+        int IncreasePhotoViews(int Id);
+        IEnumerable<Photo> RetrieveAllPhotos();
     }
 }

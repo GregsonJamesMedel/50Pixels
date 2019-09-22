@@ -34,7 +34,10 @@ namespace _50Pixels.Controllers
             {
                 Id = photo.Id,
                 Title = photo.Title,
-                Path = photo.Path
+                Path = photo.Path,
+                Views = _photoServeice.IncreasePhotoViews(id),
+                UploaderId = photo.UploaderId,
+                DateUploaded = photo.DateUploaded
             };
             return View(vm);
         }

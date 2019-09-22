@@ -19,6 +19,14 @@ namespace _50Pixels.Services
             return _context.Photos.FirstOrDefault(photo => photo.Id == id);
         }
 
+        public int IncreasePhotoViews(int Id)
+        {
+            var photo = GetPhotoById(Id);
+            photo.Views = ++photo.Views;
+            _context.SaveChanges();
+            return photo.Views;
+        }
+
         public IEnumerable<Photo> RetrieveAllPhotos()
         {
             return _context.Photos;

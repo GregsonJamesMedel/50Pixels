@@ -1,3 +1,5 @@
+using System;
+
 namespace _50Pixels.ViewModels
 {
     public class ViewPhotoViewModel
@@ -5,5 +7,8 @@ namespace _50Pixels.ViewModels
         public int Id { get; set; }
         public string Title { get; set; }
         public string Path { get; set; }
+        public int Views { get; set; }
+        public DateTime DateUploaded { get; set; }
+        public string UploaderId { get; set; }
     }
 }
