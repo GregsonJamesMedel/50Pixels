@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Hosting;
 using _50Pixels.Services;
 using _50Pixels.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace _50Pixels.Controllers
 {
@@ -14,12 +16,15 @@ namespace _50Pixels.Controllers
     {
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IPhotoService _photoServeice;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         public PhotosController(IHostingEnvironment hostingEnvironment,
+                                IHttpContextAccessor httpContextAccessor,
                                 IPhotoService photoService)
         {
             this._hostingEnvironment = hostingEnvironment;
             this._photoServeice = photoService;
+            this._httpContextAccessor = httpContextAccessor;
         }
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
@@ -56,9 +61,13 @@ namespace _50Pixels.Controllers
                     vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
                 }
 
+                var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                
                 var photo = new Photo(){
                     Title = vm.Title,
-                    Path = uniqueFileName
+                    Path = uniqueFileName,
+                    UploaderId = userId,
+                    DateUploaded = DateTime.Now
                 };
 
                 _photoServeice.SavePhoto(photo);
