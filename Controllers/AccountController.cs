@@ -27,7 +27,6 @@ namespace _50Pixels.Controllers
         [HttpGet]
         public IActionResult SignUp()
         {
-            ViewBag.Title = "Sign Up";
             return View();
         }
 
@@ -69,14 +68,12 @@ namespace _50Pixels.Controllers
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
             }
-            ViewBag.Title = "Sign Up";
             return View(vm);
         }
 
         [HttpGet]
         public IActionResult SignIn()
         {
-            ViewBag.Title = "Sign In";
             return View();
         }
 
@@ -89,7 +86,6 @@ namespace _50Pixels.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Title = "Sign In";
             return View(vm);
         }
 

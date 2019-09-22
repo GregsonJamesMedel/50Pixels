@@ -45,7 +45,6 @@ namespace _50Pixels.Controllers
         [HttpGet]
         public IActionResult Upload()
         {
-            ViewBag.Title = "Upload Photo";
             return View();
         }
 
@@ -77,9 +76,7 @@ namespace _50Pixels.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Title = "Upload Photo";
             return View(vm);
-
         }
     }
 }
