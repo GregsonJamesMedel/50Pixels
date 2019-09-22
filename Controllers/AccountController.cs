@@ -1,9 +1,12 @@
 using System;
 using System.IO;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using _50Pixels.Models;
+using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,14 +17,20 @@ namespace _50Pixels.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IPhotoService _photoService;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                 SignInManager<ApplicationUser> signInManager,
+                                IHttpContextAccessor httpContextAccessor,
+                                IPhotoService photoService,
                                 IHostingEnvironment hostingEnvironment)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
+            this._photoService = photoService;
             this._hostingEnvironment = hostingEnvironment;
+            this._httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -93,6 +102,15 @@ namespace _50Pixels.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Profile(string id)
+        {
+            var appUser = _userManager.FindByIdAsync(id);
+            var vm = new AccountProfileViewModel();
+            vm.ApplicationUser = appUser.Result;
+            vm.Photos = _photoService.GetPhotosByUploaderId(id);
+            return View(vm);
         }
 
     }

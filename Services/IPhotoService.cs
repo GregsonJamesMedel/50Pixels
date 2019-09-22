@@ -7,6 +7,7 @@ namespace _50Pixels.Services
     {
         void SavePhoto(Photo photo);
         Photo GetPhotoById(int id);
+        IEnumerable<Photo> GetPhotosByUploaderId(string id);
         int IncreasePhotoViews(int Id);
         IEnumerable<Photo> RetrieveAllPhotos();
     }

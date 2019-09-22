@@ -30,3 +30,5 @@
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Account/SignUp.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Account/SignIn.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Photos/ViewPhoto.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Account/Profile.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Gallery.g.cshtml.cs

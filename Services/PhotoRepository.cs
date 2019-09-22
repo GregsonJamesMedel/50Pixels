@@ -19,6 +19,11 @@ namespace _50Pixels.Services
             return _context.Photos.FirstOrDefault(photo => photo.Id == id);
         }
 
+        public IEnumerable<Photo> GetPhotosByUploaderId(string id)
+        {
+           return _context.Photos.Where(p => p.UploaderId == id);
+        }
+
         public int IncreasePhotoViews(int Id)
         {
             var photo = GetPhotoById(Id);

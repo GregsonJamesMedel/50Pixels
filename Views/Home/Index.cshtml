@@ -8,14 +8,8 @@
 <h2 class="text-center">Free Stock Photos</h2>
 
 <div class="container-fluid">
- 
-  <div class="Gallery">
-      @foreach(var photo in Model.Photos)
-      {
-        <a asp-controller="Photos" asp-action="ViewPhoto" asp-route-id="@photo.Id">
-          <img class="flex-img" src="~/Photos/@photo.Path" alt="@photo.Title" data-title="@photo.Title" asp-append-version="true">
-        </a>
-      }
-  </div>
+
+  <partial name="_Gallery" model="@Model.Photos">
+
 </div>
 
