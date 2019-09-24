@@ -17,19 +17,23 @@ namespace _50Pixels.Controllers
         private readonly IHostingEnvironment _hostingEnvironment;
         private readonly IPhotoService _photoServeice;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILikeService _likeService;
 
         public PhotosController(IHostingEnvironment hostingEnvironment,
                                 IHttpContextAccessor httpContextAccessor,
-                                IPhotoService photoService)
+                                IPhotoService photoService,
+                                ILikeService likeService)
         {
             this._hostingEnvironment = hostingEnvironment;
             this._photoServeice = photoService;
             this._httpContextAccessor = httpContextAccessor;
+            this._likeService = likeService;
         }
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
         {
             var photo = _photoServeice.GetPhotoById(id);
+            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var vm = new ViewPhotoViewModel()
             {
                 Id = photo.Id,
@@ -37,7 +41,9 @@ namespace _50Pixels.Controllers
                 Path = photo.Path,
                 Views = _photoServeice.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
-                DateUploaded = photo.DateUploaded
+                DateUploaded = photo.DateUploaded,
+                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(userId,id),
+                Likes = _likeService.GetLikesCount(id)
             };
             return View(vm);
         }

@@ -8,6 +8,8 @@ namespace _50Pixels.ViewModels
         public string Title { get; set; }
         public string Path { get; set; }
         public int Views { get; set; }
+        public bool DoesUserLikeThePhoto { get; set; }
+        public int Likes { get; set; }
         public DateTime DateUploaded { get; set; }
         public string UploaderId { get; set; }
     }

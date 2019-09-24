@@ -30,7 +30,7 @@ namespace _50Pixels.Services
             return result.Count();
         }
 
-        public void LikePhoto(int photoId)
+        public bool LikePhoto(int photoId)
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -41,15 +41,17 @@ namespace _50Pixels.Services
 
             _context.Likes.Add(like);
             _context.SaveChanges();
+            return DoesUserLikeThePhoto(userId,photoId);
         }
 
-        public void UnlikePhoto(int photoId)
+        public bool UnlikePhoto(int photoId)
         {
             var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var like = _context.Likes.FirstOrDefault(x => x.PhotoId == photoId && x.LikerId == userId);
             _context.Likes.Remove(like);
             _context.SaveChanges();
+            return DoesUserLikeThePhoto(userId,photoId);
         }
     }
 }

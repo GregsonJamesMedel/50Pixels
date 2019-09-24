@@ -255,3 +255,7 @@ p.copyright {
   margin-top: 10px;
 }
 
+#like form{
+  display: inline;
+  cursor: pointer;
+}
