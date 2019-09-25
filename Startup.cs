@@ -33,6 +33,8 @@ namespace _50Pixels
 
             services.AddScoped<IPhotoService,PhotoRepository>();
             services.AddScoped<ILikeService,LikeRepository>();
+            services.AddScoped<IFileProcessor,FileProcessor>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

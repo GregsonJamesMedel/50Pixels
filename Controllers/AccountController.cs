@@ -16,7 +16,7 @@ namespace _50Pixels.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IFileProcessor _fileProcessor;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IPhotoService _photoService;
 
@@ -24,12 +24,12 @@ namespace _50Pixels.Controllers
                                 SignInManager<ApplicationUser> signInManager,
                                 IHttpContextAccessor httpContextAccessor,
                                 IPhotoService photoService,
-                                IHostingEnvironment hostingEnvironment)
+                                IFileProcessor fileProcessor)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._photoService = photoService;
-            this._hostingEnvironment = hostingEnvironment;
+            this._fileProcessor = fileProcessor;
             this._httpContextAccessor = httpContextAccessor;
         }
 
@@ -45,15 +45,10 @@ namespace _50Pixels.Controllers
             if (ModelState.IsValid)
             {
                 //save profile pic
-                string uniqueFileName = "";
+                string photoFileName = "";
 
                 if (vm.Photo != null)
-                {
-                    string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath, "ProfilePics");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFoler, uniqueFileName);
-                    vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
+                    photoFileName = _fileProcessor.SavePhoto(vm.Photo,"ProfilePics");
 
                 var user = new ApplicationUser()
                 {
@@ -61,7 +56,7 @@ namespace _50Pixels.Controllers
                     UserName = vm.Email,
                     Firstname = vm.Firstname,
                     Lastname = vm.Lastname,
-                    PhotoPath = uniqueFileName
+                    PhotoPath = photoFileName
                 };
 
                 var result = await _userManager.CreateAsync(user, vm.Password);

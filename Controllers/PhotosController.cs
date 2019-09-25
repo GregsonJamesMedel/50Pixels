@@ -1,8 +1,6 @@
 using System;
-using System.IO;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
 using _50Pixels.Services;
 using _50Pixels.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -14,21 +12,22 @@ namespace _50Pixels.Controllers
     [Authorize]
     public class PhotosController : Controller
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IFileProcessor _fileProcessor;
         private readonly IPhotoService _photoServeice;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILikeService _likeService;
 
-        public PhotosController(IHostingEnvironment hostingEnvironment,
+        public PhotosController(IFileProcessor fileProcessor,
                                 IHttpContextAccessor httpContextAccessor,
                                 IPhotoService photoService,
                                 ILikeService likeService)
         {
-            this._hostingEnvironment = hostingEnvironment;
+            this._fileProcessor = fileProcessor;
             this._photoServeice = photoService;
             this._httpContextAccessor = httpContextAccessor;
             this._likeService = likeService;
         }
+        
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
         {
@@ -59,21 +58,16 @@ namespace _50Pixels.Controllers
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = "";
+                string photoFileName = "";
 
                 if (vm.Photo != null)
-                {
-                    string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath, "Photos");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFoler, uniqueFileName);
-                    vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
+                   photoFileName = _fileProcessor.SavePhoto(vm.Photo,"Photos");
 
                 var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 
                 var photo = new Photo(){
                     Title = vm.Title,
-                    Path = uniqueFileName,
+                    Path = photoFileName,
                     UploaderId = userId,
                     DateUploaded = DateTime.Now
                 };
