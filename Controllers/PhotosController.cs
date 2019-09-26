@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using _50Pixels.Services;
 using _50Pixels.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
 
 namespace _50Pixels.Controllers
 {
@@ -14,17 +12,17 @@ namespace _50Pixels.Controllers
     {
         private readonly IFileProcessor _fileProcessor;
         private readonly IPhotoService _photoServeice;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ILikeService _likeService;
+        private readonly IUserSessionService _userSessionService;
 
         public PhotosController(IFileProcessor fileProcessor,
-                                IHttpContextAccessor httpContextAccessor,
+                                IUserSessionService userSessionService,
                                 IPhotoService photoService,
                                 ILikeService likeService)
         {
             this._fileProcessor = fileProcessor;
             this._photoServeice = photoService;
-            this._httpContextAccessor = httpContextAccessor;
+            this._userSessionService = userSessionService;
             this._likeService = likeService;
         }
         
@@ -32,7 +30,7 @@ namespace _50Pixels.Controllers
         public IActionResult ViewPhoto(int id)
         {
             var photo = _photoServeice.GetPhotoById(id);
-            var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var vm = new ViewPhotoViewModel()
             {
                 Id = photo.Id,
@@ -41,17 +39,14 @@ namespace _50Pixels.Controllers
                 Views = _photoServeice.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
                 DateUploaded = photo.DateUploaded,
-                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(userId,id),
+                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(),id),
                 Likes = _likeService.GetLikesCount(id)
             };
             return View(vm);
         }
 
         [HttpGet]
-        public IActionResult Upload()
-        {
-            return View();
-        }
+        public IActionResult Upload() =>  View();
 
         [HttpPost]
         public IActionResult Upload(UploadPhotoViewModel vm)
@@ -62,13 +57,11 @@ namespace _50Pixels.Controllers
 
                 if (vm.Photo != null)
                    photoFileName = _fileProcessor.SavePhoto(vm.Photo,"Photos");
-
-                var userId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 
                 var photo = new Photo(){
                     Title = vm.Title,
                     Path = photoFileName,
-                    UploaderId = userId,
+                    UploaderId = _userSessionService.GetCurrentUserID(),
                     DateUploaded = DateTime.Now
                 };
 

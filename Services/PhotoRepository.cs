@@ -42,5 +42,10 @@ namespace _50Pixels.Services
             this._context.Photos.Add(photo);
             this._context.SaveChanges();
         }
+
+        public IEnumerable<Photo> SearchPhotoByTitle(string title)
+        {
+            return this._context.Photos.Where(photo => photo.Title.Contains(title));
+        }
     }
 }

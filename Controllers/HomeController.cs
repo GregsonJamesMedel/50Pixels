@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 
 namespace _50Pixels.Controllers
 {
@@ -15,12 +13,24 @@ namespace _50Pixels.Controllers
             this._photoService = photoService;
         }
         
+        [HttpGet]
         public IActionResult Index()
         {
             var model = new HomeIndexViewModel();
             model.Photos = _photoService.RetrieveAllPhotos();
             
             return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Index(HomeIndexViewModel vm)
+        {
+            if(string.IsNullOrWhiteSpace(vm.SearchKey))
+                vm.Photos = _photoService.RetrieveAllPhotos();
+
+            vm.Photos = _photoService.SearchPhotoByTitle(vm.SearchKey);
+
+            return View(vm);
         }
     }
 }

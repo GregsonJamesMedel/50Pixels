@@ -10,5 +10,6 @@ namespace _50Pixels.Services
         IEnumerable<Photo> GetPhotosByUploaderId(string id);
         int IncreasePhotoViews(int Id);
         IEnumerable<Photo> RetrieveAllPhotos();
+        IEnumerable<Photo> SearchPhotoByTitle(string title);
     }
 }
