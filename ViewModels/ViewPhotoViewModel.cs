@@ -1,4 +1,5 @@
 using System;
+using _50Pixels.Models;
 
 namespace _50Pixels.ViewModels
 {

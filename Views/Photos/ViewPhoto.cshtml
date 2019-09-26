@@ -1,6 +1,9 @@
 @model ViewPhotoViewModel
+@inject UserManager<ApplicationUser> _userManager
 @{
     ViewBag.Title = Model.Title;
+    var uploaderInfo = _userManager.FindByIdAsync(@Model.UploaderId);
+
 }
 
 <div class="container" id="margintop70">
@@ -10,7 +13,7 @@
             <a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UploaderId" class="text-center">
                 <h4>
                     <i class="fa fa-camera"></i> 
-                    Gregson Medel
+                    @uploaderInfo.Result.Firstname @uploaderInfo.Result.Lastname
                 </h4>
             </a>
             <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" id="viewedPhoto" asp-append-version="true">
