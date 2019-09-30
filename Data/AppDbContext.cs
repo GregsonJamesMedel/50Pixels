@@ -4,10 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _50Pixels.Data
 {
-    public class AppDbContext : IdentityDbContext
+    public class AppDbContext : IdentityDbContext<ApplicationUser>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
 
         public DbSet<Photo> Photos { get; set; }
+        public DbSet<Like> Likes { get; set; }
     }
 }

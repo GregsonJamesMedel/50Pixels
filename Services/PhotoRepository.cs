@@ -14,6 +14,32 @@ namespace _50Pixels.Services
             this._context = context;
         }
 
+        public bool DeletePhoto(int Id)
+        {
+            var photo = GetPhotoById(Id);
+            _context.Photos.Remove(photo);
+            _context.SaveChanges();
+            return GetPhotoById(Id) != null ? false : true;
+        }
+
+        public Photo GetPhotoById(int id)
+        {
+            return _context.Photos.FirstOrDefault(photo => photo.Id == id);
+        }
+
+        public IEnumerable<Photo> GetPhotosByUploaderId(string id)
+        {
+           return _context.Photos.Where(p => p.UploaderId == id);
+        }
+
+        public int IncreasePhotoViews(int Id)
+        {
+            var photo = GetPhotoById(Id);
+            photo.Views = ++photo.Views;
+            _context.SaveChanges();
+            return photo.Views;
+        }
+
         public IEnumerable<Photo> RetrieveAllPhotos()
         {
             return _context.Photos;
@@ -23,6 +49,11 @@ namespace _50Pixels.Services
         {
             this._context.Photos.Add(photo);
             this._context.SaveChanges();
+        }
+
+        public IEnumerable<Photo> SearchPhotoByTitle(string title)
+        {
+            return this._context.Photos.Where(photo => photo.Title.Contains(title));
         }
     }
 }

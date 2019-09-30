@@ -1,0 +1,46 @@
+@model ViewPhotoViewModel
+@inject UserManager<ApplicationUser> _userManager
+@{
+    ViewBag.Title = Model.Title;
+    var uploaderInfo = _userManager.FindByIdAsync(@Model.UploaderId);
+
+}
+
+<div class="container" id="margintop70">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">@Model.Title</h2>
+            <a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UploaderId" class="text-center">
+                <h4>
+                    <i class="fa fa-camera"></i> 
+                    @uploaderInfo.Result.Firstname @uploaderInfo.Result.Lastname
+                </h4>
+            </a>
+            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" id="viewedPhoto" asp-append-version="true">
+            <div id="margin20">
+                <a class="aColor" href='javascript:history.go(-1)'>Back</a> |
+                <span id="like">
+                    @if(Model.DoesUserLikeThePhoto)
+                    {
+                        <form asp-controller="Reaction" asp-action="Unlike" asp-route-id="@Model.Id" method="post" id="unlikeform">
+                            <a id="unlikeButton" class="aColor">Unlike</a> |
+                        </form>
+                    }else
+                    {
+                        <form asp-controller="Reaction" asp-action="Like" asp-route-id="@Model.Id" method="post" id="likeform">
+                            <a id="likeButton" class="aColor">Like</a> |
+                        </form>
+                    }
+                </span>
+                <a class="aColor" href='javascript:history.go(-1)'>Download</a>
+                @if(@Model.ViewerIsTheUploader)
+                {
+                    <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">
+                        <span class="label label-danger">Delete</span>
+                    </a>
+                }
+                <span class="pull-right">Date Uploaded: @Model.DateUploaded | Likes: @Model.Likes | Views: @Model.Views</span>
+            </div>
+        </div>
+    </div>
+</div>

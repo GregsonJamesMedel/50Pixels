@@ -139,8 +139,6 @@ a.navbar-brand:hover {
     background-size: cover;
 }
 
-
-
 #header h1 {
 	margin-top: 60px;
 	margin-bottom: 15px;
@@ -201,17 +199,20 @@ p.copyright {
     color: #fff;
 }
 
-.credits a{
+.credits a
+{
     color: #fff;
 }
 
-.Gallery{
+.Gallery
+{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.Gallery .flex-img{
+.Gallery .flex-img
+{
     width: auto;
     height: auto;
     max-width: 300px;
@@ -220,103 +221,41 @@ p.copyright {
     border-radius: 10px;
 }
 
-.Gallery .flex-img:hover{
+.Gallery .flex-img:hover
+{
     border: 2px solid #fd680e;
     border-radius: 10px;
 }
 
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+#photographer{
+  float: left;
+}
 
-  }
-  
-  /* Modal Content */
-  .modal-content {
-    position: fixed;
-    bottom: 10%;
-    left: 15%;
-    background-color: #444;
-    width: 70%;
-    max-height: 80%;
+.hearted{
+  color: red;
+}
 
-  }
-  
-  /* The Close Button */
-  .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .modal-header {
-    padding: 2px 16px;
-    background-color: #fd680e;
-    color: white;
-  }
-  
-  .modal-body {padding: 2px 16px;}
-  
-  .modal-footer {
-    padding: 2px 16px;
-    background-color: #fd680e;
-    color: white;
-  }
+#uploadWrapper, #margintop70{
+  margin-top: 70px;
+}
 
-  #modal-img
-  {
-    margin: 0 auto;
-  }
+#uploadWrapper:after, #margintop70:after{
+  margin-top: 70px;
+}
 
-  .modal-footer ul
-  {
-    list-style-type: none;
-    display: inline-block;
-  }
+#uploadsubmit{
+  margin-top: 20px;
+}
 
-  .modal-footer ul li
-  {
-    float: left;
-    margin-right: 10px;
-  }
+.aColor{
+  color: #555;
+}
 
-  #photographer
-  {
-    float: left;
-  }
+#margin20{
+  margin-top: 10px;
+}
 
-  .hearted
-  {
-    color: red;
-  }
-
-  #uploadWrapper, #margintop70
-  {
-    margin-top: 70px;
-  }
-
-  #uploadWrapper:after, #margintop70:after
-  {
-    margin-top: 70px;
-  }
-
-  #uploadsubmit
-  {
-    margin-top: 20px;
-  }
+#like form{
+  display: inline;
+  cursor: pointer;
+}

@@ -1,59 +1,86 @@
 using System;
-using System.IO;
+using _50Pixels.Models;
+using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Hosting;
-using _50Pixels.Services;
-using _50Pixels.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _50Pixels.Controllers
 {
+    [Authorize]
     public class PhotosController : Controller
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IFileProcessor _fileProcessor;
         private readonly IPhotoService _photoServeice;
+        private readonly ILikeService _likeService;
+        private readonly IUserSessionService _userSessionService;
 
-        public PhotosController(IHostingEnvironment hostingEnvironment,
-                                IPhotoService photoService)
+        public PhotosController(IFileProcessor fileProcessor,
+                                IUserSessionService userSessionService,
+                                IPhotoService photoService,
+                                ILikeService likeService)
         {
-            this._hostingEnvironment = hostingEnvironment;
+            this._fileProcessor = fileProcessor;
             this._photoServeice = photoService;
+            this._userSessionService = userSessionService;
+            this._likeService = likeService;
+        }
+
+        [AllowAnonymous]
+        public IActionResult ViewPhoto(int id)
+        {
+            var photo = _photoServeice.GetPhotoById(id);
+
+            var vm = new ViewPhotoViewModel()
+            {
+                Id = photo.Id,
+                Title = photo.Title,
+                Path = photo.Path,
+                Views = _photoServeice.IncreasePhotoViews(id),
+                UploaderId = photo.UploaderId,
+                DateUploaded = photo.DateUploaded,
+                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
+                Likes = _likeService.GetLikesCount(id),
+                ViewerIsTheUploader = photo.UploaderId == _userSessionService.GetCurrentUserID()
+
+            };
+            return View(vm);
         }
 
         [HttpGet]
-        public IActionResult Upload()
-        {
-            ViewBag.Title = "Upload Photo";
-            return View();
-        }
+        public IActionResult Upload() => View();
 
         [HttpPost]
         public IActionResult Upload(UploadPhotoViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                string uniqueFileName = "";
+                string photoFileName = "";
 
                 if (vm.Photo != null)
-                {
-                    string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath, "Photos");
-                    uniqueFileName = Guid.NewGuid().ToString() + "_" + vm.Photo.FileName;
-                    string filePath = Path.Combine(uploadsFoler, uniqueFileName);
-                    vm.Photo.CopyTo(new FileStream(filePath, FileMode.Create));
-                }
+                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "Photos");
 
-                var photo = new Photo(){
+                var photo = new Photo()
+                {
                     Title = vm.Title,
-                    Path = uniqueFileName
+                    Path = photoFileName,
+                    UploaderId = _userSessionService.GetCurrentUserID(),
+                    DateUploaded = DateTime.Now
                 };
 
                 _photoServeice.SavePhoto(photo);
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Title = "Upload Photo";
             return View(vm);
+        }
 
+        public IActionResult DeletePhoto(int id)
+        {
+            if(_photoServeice.DeletePhoto(id))
+                _likeService.DeleteLikes(id);
+            
+            return RedirectToAction("Index","Home");
         }
     }
 }

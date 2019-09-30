@@ -1,0 +1,24 @@
+@model AccountProfileViewModel
+@{
+    ViewBag.Title = Model.ApplicationUser.Firstname + " " + Model.ApplicationUser.Lastname;
+}
+
+<div class="container-fluid" id="margintop70">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/ProfilePics/@Model.ApplicationUser.PhotoPath" class="img-responsive" asp-append-version="true">
+            <h3 class="text-center">
+                @Model.ApplicationUser.Firstname @Model.ApplicationUser.Lastname
+                @if(Model.IsCurrentUserProfile)
+                {
+                    <a class="aColor" asp-controller="Account" asp-action="EditProfile"><i class="fa fa-edit"></i></a>
+                }
+            </h3>
+            
+        </div>
+        <div class="col-md-9">
+            <h4 class="text-center">Photos: @Model.Photos.Count() | Likes: 12 | Following: 3 | Followers: 3</h4>
+            <partial name="_Gallery" model="@Model.Photos">
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Http;
 
 namespace _50Pixels.ViewModels
 {
@@ -23,5 +24,16 @@ namespace _50Pixels.ViewModels
         [MaxLength(20)]
         [DisplayName("Confirm Password")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(20)]
+        public string Firstname { get; set; }
+
+        [Required]
+        [MinLength(2)]
+        [MaxLength(20)]
+        public string Lastname { get; set; }
+        public IFormFile Photo { get; set; }
     }
 }

@@ -1,0 +1,9 @@
+  @model IEnumerable<Photo>
+  <div class="Gallery">
+      @foreach(var photo in Model)
+      {
+        <a asp-controller="Photos" asp-action="ViewPhoto" asp-route-id="@photo.Id">
+          <img class="flex-img" src="~/Photos/@photo.Path" alt="@photo.Title" data-title="@photo.Title" asp-append-version="true">
+        </a>
+      }
+  </div>

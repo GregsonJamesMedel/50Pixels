@@ -2986,8 +2986,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Photos/ViewPhoto.cshtml",
+      "TargetPath": "Views/Photos/ViewPhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_NavBar.cshtml",
       "TargetPath": "Views/Shared/_NavBar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Profile.cshtml",
+      "TargetPath": "Views/Account/Profile.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2998,6 +3008,11 @@
     {
       "FilePath": "Views/Shared/_Header.cshtml",
       "TargetPath": "Views/Shared/_Header.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_Gallery.cshtml",
+      "TargetPath": "Views/Shared/_Gallery.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -1,28 +1,50 @@
 @model AccountRegisterViewModel
+@{
+    ViewBag.Title = "Sign Up";
+}
 
 <div class="container" id="margintop70">
     <h2>Sign Up</h2>
     <div class="row">
-        <div class="col-md-6">
-            <form asp-controller="Account" asp-action="SignUp" method="post">
-                <div class="form-group">
-                    <label asp-for="@Model.Email"></label>
-                    <input asp-for="@Model.Email" class="form-control">
-                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="@Model.Password"></label>
-                    <input asp-for="@Model.Password" class="form-control">
-                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                </div>
+            <form  enctype="multipart/form-data"  asp-controller="Account" asp-action="SignUp" method="post">
+                <div class="col-md-6">
                     <div class="form-group">
-                    <label asp-for="@Model.ConfirmPassword"></label>
-                    <input asp-for="@Model.ConfirmPassword" class="form-control">
-                    <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                        <label asp-for="@Model.Email"></label>
+                        <input asp-for="@Model.Email" class="form-control">
+                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Password"></label>
+                        <input asp-for="@Model.Password" class="form-control">
+                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    </div>
+                        <div class="form-group">
+                        <label asp-for="@Model.ConfirmPassword"></label>
+                        <input asp-for="@Model.ConfirmPassword" class="form-control">
+                        <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="@Model.Firstname"></label>
+                        <input asp-for="@Model.Firstname" class="form-control">
+                        <span asp-validation-for="@Model.Firstname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="@Model.Lastname"></label>
+                        <input asp-for="@Model.Lastname" class="form-control">
+                        <span asp-validation-for="@Model.Lastname" class="text-danger"></span>
+                    </div>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <label class="custom-file-label" asp-for="@Model.Photo"></label>
+                            <input asp-for="@Model.Photo" class="custom-file-input">
+                            <span asp-validation-for="@Model.Photo" class="text-danger"></span>
+                        </div>
+                    </div>
                 </div>
                 <button class="btn btn-primary pull-right" type="submit">Submit</button>
+                <div asp-validation-summary="All" class="text-danger"></div>
             </form>
-            <div asp-validation-summary="All" class="text-danger"></div>
-        </div>
     </div>
 </div>
