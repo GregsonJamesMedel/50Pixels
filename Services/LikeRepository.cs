@@ -16,6 +16,13 @@ namespace _50Pixels.Services
             this._userSessionService = userSessionService;
         }
 
+        public void DeleteLikes(int photoId)
+        {
+           var result = _context.Likes.Where(l => l.PhotoId == photoId);
+           _context.Likes.RemoveRange(result);
+           _context.SaveChanges();
+        }
+
         public bool DoesUserLikeThePhoto(string userId, int photoId)
         {
             var result = _context.Likes.FirstOrDefault(x => x.PhotoId == photoId && x.LikerId == userId);

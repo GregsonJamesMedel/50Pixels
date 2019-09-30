@@ -14,6 +14,14 @@ namespace _50Pixels.Services
             this._context = context;
         }
 
+        public bool DeletePhoto(int Id)
+        {
+            var photo = GetPhotoById(Id);
+            _context.Photos.Remove(photo);
+            _context.SaveChanges();
+            return GetPhotoById(Id) != null ? false : true;
+        }
+
         public Photo GetPhotoById(int id)
         {
             return _context.Photos.FirstOrDefault(photo => photo.Id == id);

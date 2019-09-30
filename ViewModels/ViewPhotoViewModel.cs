@@ -13,5 +13,6 @@ namespace _50Pixels.ViewModels
         public int Likes { get; set; }
         public DateTime DateUploaded { get; set; }
         public string UploaderId { get; set; }
+        public bool ViewerIsTheUploader { get; set; }
     }
 }

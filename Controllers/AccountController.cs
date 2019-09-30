@@ -15,10 +15,12 @@ namespace _50Pixels.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IFileProcessor _fileProcessor;
         private readonly IPhotoService _photoService;
+        private readonly IUserSessionService _userSessionService;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                 SignInManager<ApplicationUser> signInManager,
                                 IHttpContextAccessor httpContextAccessor,
+                                IUserSessionService userSessionService,
                                 IPhotoService photoService,
                                 IFileProcessor fileProcessor)
         {
@@ -26,6 +28,7 @@ namespace _50Pixels.Controllers
             this._signInManager = signInManager;
             this._photoService = photoService;
             this._fileProcessor = fileProcessor;
+            this._userSessionService = userSessionService;
         }
 
         [HttpGet]
@@ -96,8 +99,8 @@ namespace _50Pixels.Controllers
             var vm = new AccountProfileViewModel();
             vm.ApplicationUser = appUser.Result;
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
+            vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
             return View(vm);
         }
-
     }
 }

@@ -1,8 +1,8 @@
 using System;
+using _50Pixels.Models;
+using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using _50Pixels.Services;
-using _50Pixels.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace _50Pixels.Controllers
@@ -25,7 +25,7 @@ namespace _50Pixels.Controllers
             this._userSessionService = userSessionService;
             this._likeService = likeService;
         }
-        
+
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
         {
@@ -39,14 +39,16 @@ namespace _50Pixels.Controllers
                 Views = _photoServeice.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
                 DateUploaded = photo.DateUploaded,
-                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(),id),
-                Likes = _likeService.GetLikesCount(id)
+                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
+                Likes = _likeService.GetLikesCount(id),
+                ViewerIsTheUploader = photo.UploaderId == _userSessionService.GetCurrentUserID()
+
             };
             return View(vm);
         }
 
         [HttpGet]
-        public IActionResult Upload() =>  View();
+        public IActionResult Upload() => View();
 
         [HttpPost]
         public IActionResult Upload(UploadPhotoViewModel vm)
@@ -56,9 +58,10 @@ namespace _50Pixels.Controllers
                 string photoFileName = "";
 
                 if (vm.Photo != null)
-                   photoFileName = _fileProcessor.SavePhoto(vm.Photo,"Photos");
-                
-                var photo = new Photo(){
+                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "Photos");
+
+                var photo = new Photo()
+                {
                     Title = vm.Title,
                     Path = photoFileName,
                     UploaderId = _userSessionService.GetCurrentUserID(),
@@ -70,6 +73,14 @@ namespace _50Pixels.Controllers
             }
 
             return View(vm);
+        }
+
+        public IActionResult DeletePhoto(int id)
+        {
+            if(_photoServeice.DeletePhoto(id))
+                _likeService.DeleteLikes(id);
+            
+            return RedirectToAction("Index","Home");
         }
     }
 }

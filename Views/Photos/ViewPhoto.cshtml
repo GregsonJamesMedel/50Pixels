@@ -33,6 +33,12 @@
                     }
                 </span>
                 <a class="aColor" href='javascript:history.go(-1)'>Download</a>
+                @if(@Model.ViewerIsTheUploader)
+                {
+                    <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">
+                        <span class="label label-danger">Delete</span>
+                    </a>
+                }
                 <span class="pull-right">Date Uploaded: @Model.DateUploaded | Likes: @Model.Likes | Views: @Model.Views</span>
             </div>
         </div>

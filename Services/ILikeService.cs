@@ -6,5 +6,6 @@ namespace _50Pixels.Services
         bool UnlikePhoto(int photoId);
         bool DoesUserLikeThePhoto(string userId, int photoId);
         int GetLikesCount(int photoId);
+        void DeleteLikes(int photoId);
     }
 }
