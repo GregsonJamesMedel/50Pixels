@@ -13,33 +13,38 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 2 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.ViewModels;
 
 #line default
 #line hidden
-#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.Models;
 
 #line default
 #line hidden
-#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
-#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
-#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 7 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
+#line 8 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using ReflectionIT.Mvc.Paging;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d108b644b197b54d0b774c7e4c0974385e8181cc", @"/Views/Account/Profile.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24cf7f28e290bd417c4d7a9cb793d409cb05ca44", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f507553425c27a51b3ea3f505dca19759dd5e36e", @"/Views/_ViewImports.cshtml")]
     public class Views_Account_Profile : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AccountProfileViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("img-responsive"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +87,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\n<div class=\"container-fluid\" id=\"margintop70\">\n    <div class=\"row\">\n        <div class=\"col-md-3\">\n            ");
             EndContext();
             BeginContext(241, 107, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d108b644b197b54d0b774c7e4c0974385e8181cc5892", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d108b644b197b54d0b774c7e4c0974385e8181cc6027", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -147,7 +152,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ImageTagHelper.AppendVersion = true;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(553, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d108b644b197b54d0b774c7e4c0974385e8181cc9386", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d108b644b197b54d0b774c7e4c0974385e8181cc9521", async() => {
                 BeginContext(621, 26, true);
                 WriteLiteral("<i class=\"fa fa-edit\"></i>");
                 EndContext();
@@ -190,7 +195,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ImageTagHelper.AppendVersion = true;
             WriteLiteral(" | Likes: 12 | Following: 3 | Followers: 3</h4>\n            ");
             EndContext();
             BeginContext(872, 47, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d108b644b197b54d0b774c7e4c0974385e8181cc11795", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d108b644b197b54d0b774c7e4c0974385e8181cc11930", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

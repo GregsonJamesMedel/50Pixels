@@ -1,6 +1,7 @@
 using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels.Controllers
 {
@@ -13,13 +14,13 @@ namespace _50Pixels.Controllers
             this._photoService = photoService;
         }
         
-        [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            var model = new HomeIndexViewModel();
-            model.Photos = _photoService.RetrieveAllPhotos();
+            var vm = new HomeIndexViewModel();
+            var photos = _photoService.RetrieveAllPhotos();
+            vm.Photos = PagingList.Create(photos,20,page);
             
-            return View(model);
+            return View(vm);
         }
 
         [HttpPost]

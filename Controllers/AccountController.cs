@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels.Controllers
 {
@@ -76,11 +77,17 @@ namespace _50Pixels.Controllers
         
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(AccountSignInViewModel vm)
+        public async Task<IActionResult> SignIn(AccountSignInViewModel vm, string returnUrl)
         {
             if (ModelState.IsValid)
             {
                 await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
+
+                if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                {
+                    return LocalRedirect(returnUrl);
+                }
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -93,12 +100,16 @@ namespace _50Pixels.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Profile(string id)
+        public IActionResult Profile(string id, int page = 1)
         {
             var appUser = _userManager.FindByIdAsync(id);
             var vm = new AccountProfileViewModel();
+
             vm.ApplicationUser = appUser.Result;
-            vm.Photos = _photoService.GetPhotosByUploaderId(id);
+
+            var photos = _photoService.GetPhotosByUploaderId(id);
+            vm.Photos = PagingList.Create(photos,6,page);
+            
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
             return View(vm);
         }

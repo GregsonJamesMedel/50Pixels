@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels
 {
@@ -19,6 +20,8 @@ namespace _50Pixels
         {
             this._config = config;
         }
+
+        [System.Obsolete]
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -29,6 +32,7 @@ namespace _50Pixels
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/SignIn");
+            services.AddPaging();
 
             services.AddScoped<IPhotoService, PhotoRepository>();
             services.AddScoped<ILikeService, LikeRepository>();

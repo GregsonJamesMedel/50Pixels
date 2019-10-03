@@ -13,33 +13,38 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 2 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.ViewModels;
 
 #line default
 #line hidden
-#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.Models;
 
 #line default
 #line hidden
-#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
-#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
-#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 7 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
+#line 8 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using ReflectionIT.Mvc.Paging;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"18a3d9bc184a6d73a69fd87d55856b021fafb11b", @"/Views/Shared/_NavBar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24cf7f28e290bd417c4d7a9cb793d409cb05ca44", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f507553425c27a51b3ea3f505dca19759dd5e36e", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__NavBar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("navbar-brand"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -103,7 +108,7 @@ using Microsoft.AspNetCore.Http;
         ");
             EndContext();
             BeginContext(572, 106, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b7477", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b7612", async() => {
                 BeginContext(637, 37, true);
                 WriteLiteral("<i class=\"fa fa-image\"></i> 50 Pixels");
                 EndContext();
@@ -136,7 +141,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("            <li>");
             EndContext();
             BeginContext(849, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b9525", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b9660", async() => {
                 BeginContext(922, 18, false);
 #line 20 "/home/medel/Documents/Projects/50Pixels/Views/Shared/_NavBar.cshtml"
                                                                                    Write(User.Identity.Name);
@@ -177,7 +182,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("</li>\n            <li>");
             EndContext();
             BeginContext(966, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b12233", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b12368", async() => {
                 BeginContext(1013, 6, true);
                 WriteLiteral("Upload");
                 EndContext();
@@ -201,7 +206,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("</li>\n            <li>");
             EndContext();
             BeginContext(1045, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b13808", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b13943", async() => {
                 BeginContext(1094, 7, true);
                 WriteLiteral("SignOff");
                 EndContext();
@@ -233,7 +238,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("            <li>");
             EndContext();
             BeginContext(1144, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b15605", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b15740", async() => {
                 BeginContext(1192, 7, true);
                 WriteLiteral("Sign up");
                 EndContext();
@@ -257,7 +262,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("</li>\n            <li>");
             EndContext();
             BeginContext(1225, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b17181", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18a3d9bc184a6d73a69fd87d55856b021fafb11b17316", async() => {
                 BeginContext(1273, 7, true);
                 WriteLiteral("Sign in");
                 EndContext();

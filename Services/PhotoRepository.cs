@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using _50Pixels.Data;
 using _50Pixels.Models;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace _50Pixels.Services
 {
@@ -29,7 +30,7 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> GetPhotosByUploaderId(string id)
         {
-           return _context.Photos.Where(p => p.UploaderId == id);
+           return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderBy(p => p.DateUploaded);
         }
 
         public int IncreasePhotoViews(int Id)
@@ -42,7 +43,7 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> RetrieveAllPhotos()
         {
-            return _context.Photos;
+            return _context.Photos.AsNoTracking().OrderBy(p => p.DateUploaded);
         }
 
         public void SavePhoto(Photo photo)

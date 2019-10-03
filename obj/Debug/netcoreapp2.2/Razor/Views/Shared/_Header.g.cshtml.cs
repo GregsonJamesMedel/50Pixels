@@ -13,33 +13,38 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
-#line 2 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.ViewModels;
 
 #line default
 #line hidden
-#line 3 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using _50Pixels.Models;
 
 #line default
 #line hidden
-#line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
-#line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using System.Security.Claims;
 
 #line default
 #line hidden
-#line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+#line 7 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using Microsoft.AspNetCore.Http;
 
 #line default
 #line hidden
+#line 8 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using ReflectionIT.Mvc.Paging;
+
+#line default
+#line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"462d75b3246f1abdc86b483de24b3ad33a76e1b3", @"/Views/Shared/_Header.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"24cf7f28e290bd417c4d7a9cb793d409cb05ca44", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f507553425c27a51b3ea3f505dca19759dd5e36e", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Header : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -73,7 +78,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("  <div id=\"header\">\n    <div class=\"container\">\n      <div class=\"row\">\n        <div class=\"col-lg-6\">\n          <h1>Your Favourite Source of Free Stock Photos</h1>\n          ");
             EndContext();
             BeginContext(175, 339, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "462d75b3246f1abdc86b483de24b3ad33a76e1b35154", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "462d75b3246f1abdc86b483de24b3ad33a76e1b35289", async() => {
                 BeginContext(261, 246, true);
                 WriteLiteral("\n            <div class=\"form-group\">\n              <input type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Search Photos\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-theme\">Search</button>\n          ");
                 EndContext();
