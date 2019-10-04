@@ -43,7 +43,7 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> RetrieveAllPhotos()
         {
-            return _context.Photos.AsNoTracking().OrderBy(p => p.DateUploaded);
+            return _context.Photos.AsNoTracking().OrderByDescending(p => p.DateUploaded);
         }
 
         public void SavePhoto(Photo photo)

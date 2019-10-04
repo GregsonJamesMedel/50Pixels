@@ -15,10 +15,16 @@
         <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-image"></i> 50 Pixels</a>
       </div>
       <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a asp-controller="Photos" asp-action="Upload">Trending</a></li>
+          @if(SignInManager.IsSignedIn(User))
+          {
+            <li><a asp-controller="Photos" asp-action="Upload">Upload</a></li>
+          }
+        </ul>
         <ul class="nav navbar-nav navbar-right">
           @if(SignInManager.IsSignedIn(User)){
             <li><a asp-controller="Account" asp-action="Profile" asp-route-id="@userId">@User.Identity.Name</a></li>
-            <li><a asp-controller="Photos" asp-action="Upload">Upload</a></li>
             <li><a asp-controller="Account" asp-action="SignOff">SignOff</a></li>
           }else{
             <li><a asp-controller="Account" asp-action="SignUp">Sign up</a></li>

@@ -39,7 +39,7 @@
                         <span class="label label-danger">Delete</span>
                     </a>
                 }
-                <span class="pull-right">Date Uploaded: @Model.DateUploaded | Likes: @Model.Likes | Views: @Model.Views</span>
+                <span class="pull-right">Date Uploaded: @String.Format("{0:dddd, MMMM d, yyyy}",Model.DateUploaded) | Likes: @Model.Likes | Views: @Model.Views</span>
             </div>
         </div>
     </div>

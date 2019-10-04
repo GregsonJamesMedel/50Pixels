@@ -22,16 +22,5 @@ namespace _50Pixels.Controllers
             
             return View(vm);
         }
-
-        [HttpPost]
-        public IActionResult Index(HomeIndexViewModel vm)
-        {
-            if(string.IsNullOrWhiteSpace(vm.SearchKey))
-                vm.Photos = _photoService.RetrieveAllPhotos();
-
-            vm.Photos = _photoService.SearchPhotoByTitle(vm.SearchKey);
-
-            return View(vm);
-        }
     }
 }

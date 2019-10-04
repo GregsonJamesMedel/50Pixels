@@ -3,28 +3,13 @@
   ViewBag.Title = "Index";
 }
 
-  <div id="header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h1>Your Favourite Source of Free Stock Photos</h1>
-          <form asp-controller="Home" asp-action="Index" class="form-inline signup" role="form">
-            <div class="form-group">
-              <input asp-for="@Model.SearchKey" class="form-control" id="exampleInputEmail1" placeholder="Search Photos">
-            </div>
-            <button type="submit" class="btn btn-theme">Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> 
+<partial name="_Header">
 
-<h2 class="text-center">Free Stock Photos</h2>
+<h2 class="text-center">Recently Uploaded</h2>
 
 <div class="container-fluid">
 
   <partial name="_Gallery" model="@Model.Photos">
-
 
 </div>
 

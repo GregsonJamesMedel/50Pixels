@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Threading.Tasks;
 using _50Pixels.Models;
 using _50Pixels.Services;
@@ -108,7 +109,7 @@ namespace _50Pixels.Controllers
             vm.ApplicationUser = appUser.Result;
 
             var photos = _photoService.GetPhotosByUploaderId(id);
-            vm.Photos = PagingList.Create(photos,6,page);
+            vm.Photos = PagingList.Create(photos,photos.Count(),page);
             
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
             return View(vm);
