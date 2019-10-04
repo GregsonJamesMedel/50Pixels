@@ -3065,6 +3065,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Photos/Trending.cshtml",
+      "TargetPath": "Views/Photos/Trending.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_Gallery.cshtml",
       "TargetPath": "Views/Shared/_Gallery.cshtml",
       "FileKind": "mvc"

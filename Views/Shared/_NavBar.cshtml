@@ -16,7 +16,7 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a asp-controller="Photos" asp-action="Upload">Trending</a></li>
+          <li><a asp-controller="Photos" asp-action="Trending">Trending</a></li>
           @if(SignInManager.IsSignedIn(User))
           {
             <li><a asp-controller="Photos" asp-action="Upload">Upload</a></li>

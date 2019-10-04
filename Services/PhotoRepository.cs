@@ -30,7 +30,7 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> GetPhotosByUploaderId(string id)
         {
-           return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderBy(p => p.DateUploaded);
+           return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderByDescending(p => p.DateUploaded);
         }
 
         public int IncreasePhotoViews(int Id)

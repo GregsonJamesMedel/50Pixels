@@ -4,6 +4,8 @@ using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
+using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels.Controllers
 {
@@ -83,6 +85,13 @@ namespace _50Pixels.Controllers
             return RedirectToAction("Index","Home");
         }
 
-        
+        [AllowAnonymous]
+        public IActionResult Trending()
+        {
+            var vm = new PhotosTrendingViewModel();
+            var photos = _photoServeice.RetrieveAllPhotos().Where(p => p.Views > 10).Take(10);
+            vm.Photos = PagingList.Create(photos,photos.Count(),0);
+            return View(vm);
+        }
     }
 }

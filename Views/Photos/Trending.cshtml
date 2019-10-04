@@ -1,0 +1,9 @@
+@model PhotosTrendingViewModel
+@{
+    ViewBag.Title = "Trending Photos";
+}
+
+<div class="container-fluid" id="uploadWrapper">
+    <h2 class="text-center">Trending Photos</h2>
+    <partial name="_Gallery" model="@Model.Photos" />
+</div>

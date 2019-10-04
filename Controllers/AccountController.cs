@@ -95,6 +95,7 @@ namespace _50Pixels.Controllers
             return View(vm);
         }
 
+        [Authorize]
         public async Task<IActionResult> SignOff()
         {
             await _signInManager.SignOutAsync();
