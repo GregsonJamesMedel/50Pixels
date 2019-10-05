@@ -34,3 +34,4 @@
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Gallery.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Search/Results.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Photos/Trending.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_GalleryWithPagination.g.cshtml.cs

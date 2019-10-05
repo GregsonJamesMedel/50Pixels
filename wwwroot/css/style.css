@@ -245,6 +245,7 @@ p.copyright {
 
 #uploadsubmit{
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .aColor{
@@ -258,4 +259,8 @@ p.copyright {
 #like form{
   display: inline;
   cursor: pointer;
+}
+
+#btnGroup{
+  margin-bottom: 10px;
 }

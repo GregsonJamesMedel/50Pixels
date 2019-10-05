@@ -60,7 +60,7 @@ namespace _50Pixels.Controllers
                 string photoFileName = "";
 
                 if (vm.Photo != null)
-                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "Photos");
+                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "Photos"); //save photo in the folder
 
                 var photo = new Photo()
                 {
@@ -70,7 +70,7 @@ namespace _50Pixels.Controllers
                     DateUploaded = DateTime.Now
                 };
 
-                _photoServeice.SavePhoto(photo);
+                _photoServeice.SavePhoto(photo); //save photo path in the database
                 return RedirectToAction("Index", "Home");
             }
 
@@ -89,8 +89,12 @@ namespace _50Pixels.Controllers
         public IActionResult Trending()
         {
             var vm = new PhotosTrendingViewModel();
-            var photos = _photoServeice.RetrieveAllPhotos().Where(p => p.Views > 10).Take(10);
-            vm.Photos = PagingList.Create(photos,photos.Count(),0);
+
+            vm.Photos = _photoServeice.RetrieveAllPhotos()
+                        .Where(p => p.Views > 10)
+                        .OrderByDescending(p => p.Views)
+                        .Take(10);
+
             return View(vm);
         }
     }

@@ -1,13 +1,11 @@
-using System.Linq;
-using System.Threading.Tasks;
 using _50Pixels.Models;
 using _50Pixels.Services;
 using _50Pixels.ViewModels;
-using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using ReflectionIT.Mvc.Paging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _50Pixels.Controllers
 {
@@ -35,18 +33,17 @@ namespace _50Pixels.Controllers
 
         [HttpGet]
         public IActionResult SignUp() => View();
-        
+
 
         [HttpPost]
         public async Task<IActionResult> SignUp(AccountRegisterViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                //save profile pic
-                string photoFileName = "";
+                string photoFileName = "no-photo.png";
 
                 if (vm.Photo != null)
-                    photoFileName = _fileProcessor.SavePhoto(vm.Photo,"ProfilePics");
+                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "ProfilePics");
 
                 var user = new ApplicationUser()
                 {
@@ -75,7 +72,7 @@ namespace _50Pixels.Controllers
 
         [HttpGet]
         public IActionResult SignIn() => View();
-        
+
 
         [HttpPost]
         public async Task<IActionResult> SignIn(AccountSignInViewModel vm, string returnUrl)
@@ -84,7 +81,7 @@ namespace _50Pixels.Controllers
             {
                 await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
 
-                if(!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                 {
                     return LocalRedirect(returnUrl);
                 }
@@ -102,16 +99,15 @@ namespace _50Pixels.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Profile(string id, int page = 1)
+        public IActionResult Profile(string id)
         {
             var appUser = _userManager.FindByIdAsync(id);
             var vm = new AccountProfileViewModel();
 
             vm.ApplicationUser = appUser.Result;
 
-            var photos = _photoService.GetPhotosByUploaderId(id);
-            vm.Photos = PagingList.Create(photos,photos.Count(),page);
-            
+            vm.Photos = _photoService.GetPhotosByUploaderId(id);
+
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
             return View(vm);
         }

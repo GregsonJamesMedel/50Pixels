@@ -1,4 +1,4 @@
-@model PagingList<Photo>
+@model SearchResultsViewModel
 @{
     ViewBag.Title = "Search Results";
 }
@@ -9,12 +9,12 @@
 
 <div class="container-fluid">
 
-    @if(Model != null)
+    @if(Model.Photos.Count() > 0)
     {
-        <partial name="_Gallery" model="@Model" />
+        <partial name="_Gallery" model="@Model.Photos" />
     }else
     {
-        <h3 class="text-danger">No Results Found</h3>
+        <h3 class="text-danger text-center">No Results Found</h3>
     }
 
 </div>

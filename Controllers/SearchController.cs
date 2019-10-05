@@ -1,7 +1,6 @@
-using System.Linq;
 using _50Pixels.Services;
+using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels.Controllers
 {
@@ -14,11 +13,12 @@ namespace _50Pixels.Controllers
             this._photoService = photoService;
         }
 
-        public IActionResult Results(string SearchKey, int page = 1)
+        public IActionResult Results(string SearchKey)
         {
-            var photos = _photoService.SearchPhotoByTitle(SearchKey);
-            var model = PagingList.Create(photos,photos.Count(),page);
-            return View(model);
+            var vm = new SearchResultsViewModel();
+            vm.SearchKey = SearchKey;
+            vm.Photos = _photoService.SearchPhotoByTitle(SearchKey);
+            return View(vm);
         }
     }
 }
