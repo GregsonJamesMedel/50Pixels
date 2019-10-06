@@ -30,7 +30,7 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> GetPhotosByUploaderId(string id)
         {
-           return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderByDescending(p => p.DateUploaded);
+            return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderByDescending(p => p.DateUploaded);
         }
 
         public int IncreasePhotoViews(int Id)
@@ -55,6 +55,17 @@ namespace _50Pixels.Services
         public IEnumerable<Photo> SearchPhotoByTitle(string title)
         {
             return this._context.Photos.Where(photo => photo.Title.Contains(title));
+        }
+
+        public IEnumerable<Photo> GetLikedPhotos(string userId)
+        {
+            var res = from photo in _context.Photos
+                        join like in _context.Likes
+                        on photo.Id equals like.PhotoId
+                        where like.LikerId == userId
+                        select photo;
+
+            return res;
         }
     }
 }

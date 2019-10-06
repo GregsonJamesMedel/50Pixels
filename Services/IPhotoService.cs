@@ -12,5 +12,6 @@ namespace _50Pixels.Services
         IEnumerable<Photo> GetPhotosByUploaderId(string id);
         IEnumerable<Photo> RetrieveAllPhotos();
         IEnumerable<Photo> SearchPhotoByTitle(string title);
+        IEnumerable<Photo> GetLikedPhotos(string userId);
     }
 }

@@ -106,6 +106,8 @@ namespace _50Pixels.Controllers
 
             vm.ApplicationUser = appUser.Result;
 
+            vm.LikedPhotos = _photoService.GetLikedPhotos(id);
+            
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
 
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();

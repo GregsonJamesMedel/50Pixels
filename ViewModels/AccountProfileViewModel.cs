@@ -7,6 +7,7 @@ namespace _50Pixels.ViewModels
     {
         public ApplicationUser ApplicationUser { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
+        public IEnumerable<Photo> LikedPhotos { get; set; }
         public bool IsCurrentUserProfile { get; set; }
     }
 }
