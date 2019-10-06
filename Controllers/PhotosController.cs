@@ -5,7 +5,6 @@ using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
-using ReflectionIT.Mvc.Paging;
 
 namespace _50Pixels.Controllers
 {

@@ -1,6 +1,6 @@
 using _50Pixels.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace _50Pixels.Controllers
 {
@@ -16,7 +16,7 @@ namespace _50Pixels.Controllers
 
         public IActionResult Like(int id)
         {
-            var doesUserLikeThePhoto = _likeService.LikePhoto(id);
+            _likeService.LikePhoto(id);
             return RedirectToAction("ViewPhoto", "Photos", new { id = id });
         }
 

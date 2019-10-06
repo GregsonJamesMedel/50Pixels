@@ -102,15 +102,13 @@ namespace _50Pixels.Controllers
         public IActionResult Profile(string id)
         {
             var appUser = _userManager.FindByIdAsync(id);
+
             var vm = new AccountProfileViewModel();
-
             vm.ApplicationUser = appUser.Result;
-
             vm.LikedPhotos = _photoService.GetLikedPhotos(id);
-            
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
-
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
+            
             return View(vm);
         }
     }
