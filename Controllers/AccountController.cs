@@ -34,7 +34,6 @@ namespace _50Pixels.Controllers
         [HttpGet]
         public IActionResult SignUp() => View();
 
-
         [HttpPost]
         public async Task<IActionResult> SignUp(AccountRegisterViewModel vm)
         {
@@ -73,7 +72,6 @@ namespace _50Pixels.Controllers
         [HttpGet]
         public IActionResult SignIn() => View();
 
-
         [HttpPost]
         public async Task<IActionResult> SignIn(AccountSignInViewModel vm, string returnUrl)
         {
@@ -108,6 +106,29 @@ namespace _50Pixels.Controllers
             vm.LikedPhotos = _photoService.GetLikedPhotos(id);
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
+            
+            return View(vm);
+        }
+
+        public IActionResult Manage(string Id)
+        {
+            var model = new ManageAccountVM();
+            model.ApplicationUser = _userManager.FindByIdAsync(Id).Result;
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> ChangeProfilePhoto(ManageAccountVM vm)
+        {
+            var userId = _userSessionService.GetCurrentUserID();
+            var user = _userManager.FindByIdAsync(userId).Result;
+            var newPhotoPath = _fileProcessor.ChangePhoto(user.PhotoPath,vm.Photo);
+
+            user.PhotoPath = newPhotoPath;
+            var updateResult = await _userManager.UpdateAsync(user);
+
+            if(updateResult.Succeeded)
+               return RedirectToAction("Manage","Account",new { Id = userId});
             
             return View(vm);
         }

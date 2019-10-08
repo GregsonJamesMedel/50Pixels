@@ -35,3 +35,6 @@
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Search/Results.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Photos/Trending.g.cshtml.cs
 /home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_GalleryWithPagination.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Account/Manage.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_ManageAccountDetails.g.cshtml.cs
+/home/medel/Documents/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_ManageAccountChangePhoto.g.cshtml.cs

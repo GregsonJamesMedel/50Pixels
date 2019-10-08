@@ -3035,6 +3035,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Shared/_ManageAccountDetails.cshtml",
+      "TargetPath": "Views/Shared/_ManageAccountDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Shared/_ManageAccountChangePhoto.cshtml",
+      "TargetPath": "Views/Shared/_ManageAccountChangePhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/_ViewImports.cshtml",
       "TargetPath": "Views/_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -3047,6 +3057,11 @@
     {
       "FilePath": "Views/Shared/_NavBar.cshtml",
       "TargetPath": "Views/Shared/_NavBar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Manage.cshtml",
+      "TargetPath": "Views/Account/Manage.cshtml",
       "FileKind": "mvc"
     },
     {

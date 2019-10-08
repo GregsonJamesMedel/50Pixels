@@ -1,0 +1,30 @@
+@model ManageAccountVM
+@{
+    ViewBag.Title = "Manage Account";
+}
+
+<div class="container-fluid" id="margintop70">
+    <div class="col-md-3 col-sm-12">
+        <h2>Manage Account</h2>
+        <img src="~/ProfilePics/@Model.ApplicationUser.PhotoPath" class="img-responsive" asp-append-version="true">    
+        <h3 class="text-center">@Model.ApplicationUser.Firstname @Model.ApplicationUser.Lastname</h3>
+        <a asp-controller="Account" asp-action="Manage" asp-route-tab="ChangePassword" class="btn btn-warning btn-block">Change Password</a>   
+        <a asp-controller="Account" asp-action="Manage" asp-route-tab="ChangeProfilePhoto" class="btn btn-warning btn-block">Change Profile Photo</a>
+        <a asp-controller="Account" asp-action="Manage" asp-route-tab="ChangeAccountDetails" class="btn btn-warning btn-block">Change Account Details</a>       
+    </div>
+    <div class="col-md-9 col-sm-12">
+        @{
+            var tab = Context.Request.Query["tab"];
+            switch(tab)
+            {
+                default:
+                case "ChangeAccountDetails":
+                    <partial name="_ManageAccountDetails" mode="@Model" />
+                    break;
+                case "ChangeProfilePhoto":
+                    <partial name="_ManageAccountChangePhoto" model="@Model" />
+                    break;
+            }
+        }
+    </div>
+</div>

@@ -14,6 +14,13 @@ namespace _50Pixels.Services
             this._hostingEnvironment = hostingEnvironment;
         }
 
+        public string ChangePhoto(string oldPhotoPath, IFormFile newPhoto)
+        {
+            string oldFilePath = Path.Combine(_hostingEnvironment.WebRootPath,"ProfilePics",oldPhotoPath);
+            System.IO.File.Delete(oldFilePath);
+            return SavePhoto(newPhoto,"ProfilePics");
+        }
+
         public string SavePhoto(IFormFile photo,string location)
         {
             string uniqueFileName ="";

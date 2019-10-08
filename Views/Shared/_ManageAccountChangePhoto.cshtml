@@ -1,0 +1,17 @@
+@model ManageAccountVM
+
+<div class="row">
+    <h3>Change Profile Photo</h3>
+    <div class="col-md-6">
+        <form enctype="multipart/form-data" asp-controller="Account" asp-action="ChangeProfilePhoto" method="post">
+            <div class="input-group">
+                <div class="custom-file">
+                    <label class="custom-file-label" asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" class="custom-file-input">
+                    <span asp-validation-for="@Model.Photo" class="text-danger"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-warning pull-right">Save</button>
+        </form>
+    </div>
+</div>

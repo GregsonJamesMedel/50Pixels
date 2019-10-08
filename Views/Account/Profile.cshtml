@@ -12,7 +12,7 @@
             </h3>
                 @if(Model.IsCurrentUserProfile)
                 {
-                    <a class="btn btn-warning btn-block" asp-controller="Account" asp-action="EditProfile">Edit Profile</a>
+                    <a class="btn btn-warning btn-block" asp-controller="Account" asp-action="Manage" asp-route-id="@Model.ApplicationUser.Id">Manage Account</a>
                 }else{
                     <button class="btn btn-block btn-warning">Follow</button>
                 }
