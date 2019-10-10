@@ -132,5 +132,26 @@ namespace _50Pixels.Controllers
             
             return View(vm);
         }
+
+        public async Task<IActionResult> ChangeAccountDetails(ManageAccountVM vm)
+        {
+            var userId = _userSessionService.GetCurrentUserID();
+
+            if(ModelState.IsValid)
+            {
+                var user = _userManager.FindByIdAsync(userId).Result;
+
+                user.Firstname = vm.Firstname;
+                user.Lastname = vm.Lastname;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if(result.Succeeded)
+                {
+                    RedirectToAction("Profile","Account",new { id = userId});
+                }
+            }
+            return RedirectToAction("Manage",new{ Id = userId});
+        }
     }
 }
