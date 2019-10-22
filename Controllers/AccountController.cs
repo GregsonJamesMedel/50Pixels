@@ -153,7 +153,7 @@ namespace _50Pixels.Controllers
             return RedirectToAction("Manage", new { Id = userId });
         }
 
-        public async Task<IActionResult> ChangePassword(ManageAccountVM vm)
+        public async Task<IActionResult> ChangePassword(AccountManageChangePasswordVM vm)
         {
             var userId = _userSessionService.GetCurrentUserID();
 

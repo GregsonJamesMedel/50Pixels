@@ -25,7 +25,7 @@
                     <partial name="_ManageAccountChangePhoto" model="@Model" />
                     break;
                 case "ChangePassword":
-                    <partial name="_ManageAccountChangePassword" model="@Model" />
+                    <partial name="_ManageAccountChangePassword" model="@new AccountManageChangePasswordVM()"/>
                     break;
             }
         }
