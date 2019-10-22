@@ -106,7 +106,7 @@ namespace _50Pixels.Controllers
             vm.LikedPhotos = _photoService.GetLikedPhotos(id);
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
-            
+
             return View(vm);
         }
 
@@ -122,14 +122,14 @@ namespace _50Pixels.Controllers
         {
             var userId = _userSessionService.GetCurrentUserID();
             var user = _userManager.FindByIdAsync(userId).Result;
-            var newPhotoPath = _fileProcessor.ChangePhoto(user.PhotoPath,vm.Photo);
+            var newPhotoPath = _fileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
 
             user.PhotoPath = newPhotoPath;
             var updateResult = await _userManager.UpdateAsync(user);
 
-            if(updateResult.Succeeded)
-               return RedirectToAction("Manage","Account",new { Id = userId});
-            
+            if (updateResult.Succeeded)
+                return RedirectToAction("Manage", "Account", new { Id = userId });
+
             return View(vm);
         }
 
@@ -137,7 +137,7 @@ namespace _50Pixels.Controllers
         {
             var userId = _userSessionService.GetCurrentUserID();
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var user = _userManager.FindByIdAsync(userId).Result;
 
@@ -146,12 +146,27 @@ namespace _50Pixels.Controllers
 
                 var result = await _userManager.UpdateAsync(user);
 
-                if(result.Succeeded)
-                {
-                    RedirectToAction("Profile","Account",new { id = userId});
-                }
+                if (result.Succeeded)
+                    return RedirectToAction("Profile", "Account", new { id = userId });
+
             }
-            return RedirectToAction("Manage",new{ Id = userId});
+            return RedirectToAction("Manage", new { Id = userId });
+        }
+
+        public async Task<IActionResult> ChangePassword(ManageAccountVM vm)
+        {
+            var userId = _userSessionService.GetCurrentUserID();
+
+            if (ModelState.IsValid)
+            {
+                var user = _userManager.FindByIdAsync(userId).Result;
+                var result = await _userManager.ChangePasswordAsync(user,vm.CurrentPassword,vm.Password);
+
+                if (result.Succeeded)
+                    return RedirectToAction("Profile", "Account", new { id = userId });
+
+            }
+            return RedirectToAction("Manage", new { Id = userId });
         }
     }
 }
