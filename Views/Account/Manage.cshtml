@@ -19,13 +19,13 @@
             {
                 default:
                 case "ChangeAccountDetails":
-                    <partial name="_ManageAccountDetails" mode="@Model" />
+                    <partial name="_ManageAccountDetails" model="@new AccountManageChangeAccountDetailsVM()" />
                     break;
                 case "ChangeProfilePhoto":
-                    <partial name="_ManageAccountChangePhoto" model="@Model" />
+                    <partial name="_ManageAccountChangePhoto" mode="@Model" />
                     break;
                 case "ChangePassword":
-                    <partial name="_ManageAccountChangePassword" model="@new AccountManageChangePasswordVM()"/>
+                    <partial name="_ManageAccountChangePassword" model="@new AccountManageChangePasswordVM()" />
                     break;
             }
         }

@@ -133,7 +133,7 @@ namespace _50Pixels.Controllers
             return View(vm);
         }
 
-        public async Task<IActionResult> ChangeAccountDetails(ManageAccountVM vm)
+        public async Task<IActionResult> ChangeAccountDetails(AccountManageChangeAccountDetailsVM vm)
         {
             var userId = _userSessionService.GetCurrentUserID();
 
