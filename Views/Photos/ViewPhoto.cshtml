@@ -8,7 +8,7 @@
 
 <div class="container" id="margintop70">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
             <h2 class="text-center">@Model.Title</h2>
             <a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UploaderId" class="text-center">
                 <h4>
@@ -36,7 +36,10 @@
                 @if(@Model.ViewerIsTheUploader)
                 {
                     <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">
-                        <span class="label label-danger">Delete</span>
+                        <span class="text-danger">| Delete</span>
+                    </a>
+                    <a class="text-danger" asp-controller="Photos" asp-action="EditPhoto" asp-route-id="@Model.Id">
+                        <span class="text-warning">| Edit</span>
                     </a>
                 }
                 <span class="pull-right">Date Uploaded: @String.Format("{0:dddd, MMMM d, yyyy}",Model.DateUploaded) | Likes: @Model.Likes | Views: @Model.Views</span>

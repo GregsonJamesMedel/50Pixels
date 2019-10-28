@@ -1,0 +1,21 @@
+@model PhotosEditPhotoVM
+@{
+    ViewBag.Title = "Edit Photo";
+}
+
+<div class="container" id="margintop70">
+    <div class="row">
+        <h2 class="text-center">Edit Photo</h2>
+        <div class="col-md-8 col-md-offset-2">
+            <img src="~/Photos/@Model.PhotoPath" class="img-responsive">
+            <form asp-controller="PhotosController" asp-action="EditPhoto">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control">
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <button type="submit" class="btn btn-warning pull-right">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

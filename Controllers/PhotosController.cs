@@ -96,5 +96,37 @@ namespace _50Pixels.Controllers
 
             return View(vm);
         }
+
+        [HttpGet]
+        public IActionResult EditPhoto(int id)
+        {
+            var photo = this._photoServeice.GetPhotoById(id);
+
+            var model = new PhotosEditPhotoVM();
+            model.Id = photo.Id;
+            model.Title = photo.Title;
+            model.PhotoPath = photo.Path;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult EditPhoto(PhotosEditPhotoVM vm)
+        {
+            if(ModelState.IsValid)
+            {
+                var updatePhoto = new Photo();
+                updatePhoto.Id = vm.Id;
+                updatePhoto.Title = vm.Title;
+
+                if(this._photoServeice.EditPhoto(updatePhoto))
+                {
+                    return RedirectToAction("ViewPhoto",new { id = updatePhoto.Id });
+                }
+            }
+
+            return View(vm);
+        }
+
     }
 }

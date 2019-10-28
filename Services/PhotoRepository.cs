@@ -67,5 +67,16 @@ namespace _50Pixels.Services
 
             return res;
         }
+
+        public bool EditPhoto(Photo photo)
+        {
+            var OriginalPhoto = this._context.Photos.FirstOrDefault(p => p.Id == photo.Id);
+            
+            OriginalPhoto.Title = photo.Title;
+            this._context.Photos.Update(OriginalPhoto);
+            var result = this._context.SaveChanges();
+
+            return result > 0 ? true : false;
+        }
     }
 }
