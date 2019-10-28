@@ -14,7 +14,10 @@
                     <input asp-for="Title" class="form-control">
                     <span asp-validation-for="Title"></span>
                 </div>
-                <button type="submit" class="btn btn-warning pull-right">Submit</button>
+                <div class="button-group pull-right">
+                    <a asp-controller="Photos" asp-action="ViewPhoto" asp-route-id="@Model.Id" class="btn btn-warning">Cancel</a>
+                    <button type="submit" class="btn btn-warning">Submit</button>
+                </div>
             </form>
         </div>
     </div>

@@ -4,10 +4,10 @@
 }
 
 <div class="container" id="margintop70">
-    <h2>Sign Up</h2>
+    <h2 class="text-center">Sign Up</h2>
     <div class="row">
             <form  enctype="multipart/form-data"  asp-controller="Account" asp-action="SignUp" method="post">
-                <div class="col-md-6">
+                <div class="col-md-6 col-md-offset-3">
                     <div class="form-group">
                         <label asp-for="@Model.Email"></label>
                         <input asp-for="@Model.Email" class="form-control">
@@ -23,8 +23,6 @@
                         <input asp-for="@Model.ConfirmPassword" class="form-control">
                         <span asp-validation-for="@Model.ConfirmPassword" class="text-danger"></span>
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="@Model.Firstname"></label>
                         <input asp-for="@Model.Firstname" class="form-control">
@@ -42,8 +40,8 @@
                             <span asp-validation-for="@Model.Photo" class="text-danger"></span>
                         </div>
                     </div>
+                    <button class="btn btn-warning pull-right" type="submit">Submit</button>
                 </div>
-                <button class="btn btn-warning pull-right" type="submit">Submit</button>
                 <div asp-validation-summary="All" class="text-danger"></div>
             </form>
     </div>
