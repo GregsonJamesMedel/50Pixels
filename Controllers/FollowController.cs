@@ -17,5 +17,11 @@ namespace _50Pixels.Controllers
             this._followService.FollowUser(id);
             return RedirectToAction("Profile","Account",new { id = id });
         }
+
+        public IActionResult UnFollowUser(string id)
+        {
+            this._followService.UnFollowUser(id);
+            return RedirectToAction("Profile","Account",new { id = id });
+        }
     }
 }

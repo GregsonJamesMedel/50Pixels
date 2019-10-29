@@ -22,7 +22,7 @@ namespace _50Pixels.Services
             return result != null;
         }
 
-        public void FollowUser(string userId)
+        public bool FollowUser(string userId)
         {
             var follow = new Follow();
             follow.Following = userId;
@@ -30,6 +30,19 @@ namespace _50Pixels.Services
 
             this._context.Follows.Add(follow);
             this._context.SaveChanges();
+
+            return CheckIfFollower(userId);
+        }
+
+        public bool UnFollowUser(string userId)
+        {
+            var currentUser = this._userSessionService.GetCurrentUserID();
+            var unfollow = this._context.Follows.FirstOrDefault(f => f.Following == userId && f.Follower == currentUser);
+            
+            this._context.Follows.Remove(unfollow);
+            this._context.SaveChanges();
+            
+            return CheckIfFollower(userId);
         }
     }
 }
