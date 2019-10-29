@@ -4,8 +4,8 @@
 }
 
 <div class="container-fluid" id="margintop70">
+    <h2 class="text-center">Manage Account</h2>
     <div class="col-md-3 col-sm-12">
-        <h2>Manage Account</h2>
         <img src="~/ProfilePics/@Model.ApplicationUser.PhotoPath" class="img-responsive" asp-append-version="true">    
         <h3 class="text-center">@Model.ApplicationUser.Firstname @Model.ApplicationUser.Lastname</h3>
         <a asp-controller="Account" asp-action="Manage" asp-route-tab="ChangePassword" class="btn btn-warning btn-block">Change Password</a>   
