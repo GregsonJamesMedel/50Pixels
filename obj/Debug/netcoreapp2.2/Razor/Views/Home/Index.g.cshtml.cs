@@ -19,32 +19,37 @@ using _50Pixels.ViewModels;
 #line default
 #line hidden
 #line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using _50Pixels.Models;
+using _50Pixels.Services;
 
 #line default
 #line hidden
 #line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using Microsoft.AspNetCore.Identity;
+using _50Pixels.Models;
 
 #line default
 #line hidden
 #line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #line 7 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 #line default
 #line hidden
 #line 8 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#line 9 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using ReflectionIT.Mvc.Paging;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a27a799953211e2bb2cb31023e4671a532f44d67", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f507553425c27a51b3ea3f505dca19759dd5e36e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85e79c27dae5b4c57185bec18149845b415f5f01", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<HomeIndexViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_Header", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +86,7 @@ using ReflectionIT.Mvc.Paging;
             WriteLiteral("\n");
             EndContext();
             BeginContext(59, 24, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a27a799953211e2bb2cb31023e4671a532f44d674373", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a27a799953211e2bb2cb31023e4671a532f44d674503", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -100,7 +105,7 @@ using ReflectionIT.Mvc.Paging;
             WriteLiteral("\n\n<h2 class=\"text-center\">Recently Uploaded</h2>\n\n<div class=\"container-fluid\">\n  ");
             EndContext();
             BeginContext(165, 61, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a27a799953211e2bb2cb31023e4671a532f44d675696", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a27a799953211e2bb2cb31023e4671a532f44d675826", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

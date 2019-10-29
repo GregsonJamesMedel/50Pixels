@@ -19,32 +19,37 @@ using _50Pixels.ViewModels;
 #line default
 #line hidden
 #line 4 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using _50Pixels.Models;
+using _50Pixels.Services;
 
 #line default
 #line hidden
 #line 5 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using Microsoft.AspNetCore.Identity;
+using _50Pixels.Models;
 
 #line default
 #line hidden
 #line 6 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #line 7 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
-using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 #line default
 #line hidden
 #line 8 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
+using Microsoft.AspNetCore.Http;
+
+#line default
+#line hidden
+#line 9 "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml"
 using ReflectionIT.Mvc.Paging;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"62e2ea74ad6811496befbcae65edd91d893b87a3", @"/Views/Photos/EditPhoto.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f507553425c27a51b3ea3f505dca19759dd5e36e", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85e79c27dae5b4c57185bec18149845b415f5f01", @"/Views/_ViewImports.cshtml")]
     public class Views_Photos_EditPhoto : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PhotosEditPhotoVM>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("img-responsive"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -92,7 +97,7 @@ using ReflectionIT.Mvc.Paging;
             WriteLiteral("\n<div class=\"container\" id=\"margintop70\">\n    <div class=\"row\">\n        <h2 class=\"text-center\">Edit Photo</h2>\n        <div class=\"col-md-8 col-md-offset-2\">\n            ");
             EndContext();
             BeginContext(235, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "62e2ea74ad6811496befbcae65edd91d893b87a37137", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "62e2ea74ad6811496befbcae65edd91d893b87a37267", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -118,12 +123,12 @@ AddHtmlAttributeValue("", 254, Model.PhotoPath, 254, 16, false);
             WriteLiteral("\n            ");
             EndContext();
             BeginContext(308, 614, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a38777", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a38907", async() => {
                 BeginContext(371, 62, true);
                 WriteLiteral("\n                <div class=\"form-group\">\n                    ");
                 EndContext();
                 BeginContext(433, 31, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a39216", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a39346", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
@@ -146,7 +151,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\n                    ");
                 EndContext();
                 BeginContext(485, 44, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "62e2ea74ad6811496befbcae65edd91d893b87a310808", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "62e2ea74ad6811496befbcae65edd91d893b87a310938", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -170,7 +175,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\n                    ");
                 EndContext();
                 BeginContext(550, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a312482", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("span", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a312612", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper>();
@@ -193,7 +198,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationMessageTagHelper.For = ModelExpr
                 WriteLiteral("\n                </div>\n                <div class=\"button-group pull-right\">\n                    ");
                 EndContext();
                 BeginContext(688, 109, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a314227", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62e2ea74ad6811496befbcae65edd91d893b87a314357", async() => {
                     BeginContext(787, 6, true);
                     WriteLiteral("Cancel");
                     EndContext();

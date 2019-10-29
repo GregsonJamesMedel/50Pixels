@@ -15,6 +15,13 @@ namespace _50Pixels.Services
             this._userSessionService = userSessionService;
         }
 
+        public bool CheckIfFollower(string userId)
+        {
+            var currentUser = this._userSessionService.GetCurrentUserID();
+            var result = this._context.Follows.FirstOrDefault(f => f.Following == userId && f.Follower == currentUser);
+            return result != null;
+        }
+
         public void FollowUser(string userId)
         {
             var follow = new Follow();
