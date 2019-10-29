@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using _50Pixels.Data;
 using _50Pixels.Models;
@@ -34,6 +35,7 @@ namespace _50Pixels.Services
             return CheckIfFollower(userId);
         }
 
+
         public bool UnFollowUser(string userId)
         {
             var currentUser = this._userSessionService.GetCurrentUserID();
@@ -43,6 +45,10 @@ namespace _50Pixels.Services
             this._context.SaveChanges();
             
             return CheckIfFollower(userId);
+        }
+        public IEnumerable<Follow> GetFollowing(string userId)
+        {
+            return this._context.Follows.Where(f => f.Follower == userId);
         }
     }
 }

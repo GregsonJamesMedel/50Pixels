@@ -31,7 +31,7 @@
              <div class="btn-group btn-group-justified" id="btnGroup">
               <a asp-controller="Account" asp-action="Profile" asp-route-tab="photo" class="btn btn-warning">Photos: @Model.Photos.Count()</a>
               <a asp-controller="Account" asp-action="Profile" asp-route-tab="likedphotos" class="btn btn-warning">Likes: @Model.LikedPhotos.Count()</a>
-              <a asp-controller="Account" asp-action="Profile" asp-route-tab="followers" class="btn btn-warning">Followers: 2</a>
+              <a asp-controller="Account" asp-action="Profile" asp-route-tab="followers" class="btn btn-warning">Followers: @_followService.GetFollowing(Model.ApplicationUser.Id).Count()</a>
               <a asp-controller="Account" asp-action="Profile" asp-route-tab="following" class="btn btn-warning">Following: 2</a>
             </div> 
             @{
