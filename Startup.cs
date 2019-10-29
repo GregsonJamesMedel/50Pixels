@@ -38,6 +38,7 @@ namespace _50Pixels
             services.AddScoped<ILikeService, LikeRepository>();
             services.AddScoped<IFileProcessor, FileProcessor>();
             services.AddScoped<IUserSessionService, UserSessionService>();
+            services.AddScoped<IFollowService,FollowService>();
 
         }
 
