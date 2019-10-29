@@ -12,10 +12,10 @@ namespace _50Pixels.Controllers
             this._followService = followService;
         }
 
-        public IActionResult Follow(string id)
+        public IActionResult FollowUser(string id)
         {
             this._followService.FollowUser(id);
-            return RedirectToAction("ViewProfile","Account",new { id = id });
+            return RedirectToAction("Profile","Account",new { id = id });
         }
     }
 }

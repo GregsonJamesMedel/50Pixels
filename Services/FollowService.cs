@@ -1,3 +1,4 @@
+using System.Linq;
 using _50Pixels.Data;
 using _50Pixels.Models;
 
@@ -13,15 +14,15 @@ namespace _50Pixels.Services
             this._context = context;
             this._userSessionService = userSessionService;
         }
+
         public void FollowUser(string userId)
         {
-            var follow = new Follow()
-            {
-                Following = userId,
-                Follower = this._userSessionService.GetCurrentUserID()
-            };
+            var follow = new Follow();
+            follow.Following = userId;
+            follow.Follower = this._userSessionService.GetCurrentUserID();
 
             this._context.Follows.Add(follow);
+            this._context.SaveChanges();
         }
     }
 }
