@@ -50,5 +50,10 @@ namespace _50Pixels.Services
         {
             return this._context.Follows.Where(f => f.Follower == userId);
         }
+
+        public IEnumerable<Follow> GetFollowers(string userId)
+        {
+            return this._context.Follows.Where(f => f.Following == userId);
+        }
     }
 }
