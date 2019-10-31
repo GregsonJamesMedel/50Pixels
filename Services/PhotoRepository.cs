@@ -18,32 +18,32 @@ namespace _50Pixels.Services
         public bool DeletePhoto(int Id)
         {
             var photo = GetPhotoById(Id);
-            _context.Photos.Remove(photo);
-            _context.SaveChanges();
+            this._context.Photos.Remove(photo);
+            this._context.SaveChanges();
             return GetPhotoById(Id) != null ? false : true;
         }
 
         public Photo GetPhotoById(int id)
         {
-            return _context.Photos.FirstOrDefault(photo => photo.Id == id);
+            return this._context.Photos.FirstOrDefault(photo => photo.Id == id);
         }
 
         public IEnumerable<Photo> GetPhotosByUploaderId(string id)
         {
-            return _context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderByDescending(p => p.DateUploaded);
+            return this._context.Photos.AsNoTracking().Where(p => p.UploaderId == id).OrderByDescending(p => p.DateUploaded);
         }
 
         public int IncreasePhotoViews(int Id)
         {
             var photo = GetPhotoById(Id);
             photo.Views = ++photo.Views;
-            _context.SaveChanges();
+            this._context.SaveChanges();
             return photo.Views;
         }
 
         public IEnumerable<Photo> RetrieveAllPhotos()
         {
-            return _context.Photos.AsNoTracking().OrderByDescending(p => p.DateUploaded);
+            return this._context.Photos.AsNoTracking().OrderByDescending(p => p.DateUploaded);
         }
 
         public void SavePhoto(Photo photo)
@@ -59,8 +59,8 @@ namespace _50Pixels.Services
 
         public IEnumerable<Photo> GetLikedPhotos(string userId)
         {
-            var res = from photo in _context.Photos
-                        join like in _context.Likes
+            var res = from photo in this._context.Photos
+                        join like in this._context.Likes
                         on photo.Id equals like.PhotoId
                         where like.LikerId == userId
                         select photo;

@@ -31,8 +31,8 @@
              <div class="btn-group btn-group-justified" id="btnGroup">
               <a asp-controller="Account" asp-action="Profile" asp-route-tab="photo" class="btn btn-warning">Photos: @Model.Photos.Count()</a>
               <a asp-controller="Account" asp-action="Profile" asp-route-tab="likedphotos" class="btn btn-warning">Likes: @Model.LikedPhotos.Count()</a>
-              <a asp-controller="Account" asp-action="Profile" asp-route-tab="followers" class="btn btn-warning">Following: @Model.Following.Count()</a>
-              <a asp-controller="Account" asp-action="Profile" asp-route-tab="following" class="btn btn-warning">Followers: @Model.Followers.Count()</a>
+              <a asp-controller="Account" asp-action="Profile" asp-route-tab="following" class="btn btn-warning">Following: @Model.Following.Count()</a>
+              <a asp-controller="Account" asp-action="Profile" asp-route-tab="followers" class="btn btn-warning">Followers: @Model.Followers.Count()</a>
             </div> 
             @{
                 var tabValue = Context.Request.Query["tab"];
@@ -45,9 +45,14 @@
                     case "likedphotos":
                          <partial name="_Gallery" model="@Model.LikedPhotos" />
                          break;
+                    case "followers":
+                        <partial name="_Follow" model="@Model.Followers" />
+                        break;
+                    case "following":
+                        <partial name="_Follow" model="@Model.Following" />
+                        break;
                 }
             }
-            </div> 
         </div>
     </div>
 </div>

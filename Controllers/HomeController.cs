@@ -16,7 +16,7 @@ namespace _50Pixels.Controllers
         
         public IActionResult Index(int page = 1)
         {
-            var photos = _photoService.RetrieveAllPhotos();
+            var photos = this._photoService.RetrieveAllPhotos();
             
             var vm = new HomeIndexViewModel();
             vm.Photos = PagingList.Create(photos,20,page);

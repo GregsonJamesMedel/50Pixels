@@ -16,7 +16,6 @@ namespace _50Pixels.Controllers
         private readonly IFileProcessor _fileProcessor;
         private readonly IPhotoService _photoService;
         private readonly IUserSessionService _userSessionService;
-
         private readonly IFollowService _followService;
 
         public AccountController(UserManager<ApplicationUser> userManager,
@@ -46,7 +45,7 @@ namespace _50Pixels.Controllers
                 string photoFileName = "no-photo.png";
 
                 if (vm.Photo != null)
-                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "ProfilePics");
+                    photoFileName = this._fileProcessor.SavePhoto(vm.Photo, "ProfilePics");
 
                 var user = new ApplicationUser()
                 {
@@ -57,11 +56,11 @@ namespace _50Pixels.Controllers
                     PhotoPath = photoFileName
                 };
 
-                var result = await _userManager.CreateAsync(user, vm.Password);
+                var result = await this._userManager.CreateAsync(user, vm.Password);
 
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    await this._signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -81,7 +80,7 @@ namespace _50Pixels.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
+                await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
 
                 if (returnUrl != null && Url.IsLocalUrl(returnUrl))
                 {
@@ -97,21 +96,21 @@ namespace _50Pixels.Controllers
         [Authorize]
         public async Task<IActionResult> SignOff()
         {
-            await _signInManager.SignOutAsync();
+            await this._signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Profile(string id)
         {
-            var appUser = _userManager.FindByIdAsync(id);
+            var appUser = this._userManager.FindByIdAsync(id);
 
             var vm = new AccountProfileViewModel();
             vm.ApplicationUser = appUser.Result;
-            vm.LikedPhotos = _photoService.GetLikedPhotos(id);
-            vm.Photos = _photoService.GetPhotosByUploaderId(id);
-            vm.Following = _followService.GetFollowing(id);
-            vm.Followers = _followService.GetFollowers(id);
-            vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
+            vm.LikedPhotos = this._photoService.GetLikedPhotos(id);
+            vm.Photos = this._photoService.GetPhotosByUploaderId(id);
+            vm.Following = this._followService.GetFollowing(id);
+            vm.Followers = this._followService.GetFollowers(id);
+            vm.IsCurrentUserProfile = appUser.Result.Id == this._userSessionService.GetCurrentUserID();
 
             return View(vm);
         }
@@ -119,19 +118,19 @@ namespace _50Pixels.Controllers
         public IActionResult Manage(string Id)
         {
             var model = new ManageAccountVM();
-            model.ApplicationUser = _userManager.FindByIdAsync(Id).Result;
+            model.ApplicationUser = this._userManager.FindByIdAsync(Id).Result;
 
             return View(model);
         }
 
         public async Task<IActionResult> ChangeProfilePhoto(ManageAccountVM vm)
         {
-            var userId = _userSessionService.GetCurrentUserID();
-            var user = _userManager.FindByIdAsync(userId).Result;
-            var newPhotoPath = _fileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
+            var userId = this._userSessionService.GetCurrentUserID();
+            var user = this._userManager.FindByIdAsync(userId).Result;
+            var newPhotoPath = this._fileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
 
             user.PhotoPath = newPhotoPath;
-            var updateResult = await _userManager.UpdateAsync(user);
+            var updateResult = await this._userManager.UpdateAsync(user);
 
             if (updateResult.Succeeded)
                 return RedirectToAction("Manage", "Account", new { Id = userId });
@@ -141,16 +140,16 @@ namespace _50Pixels.Controllers
 
         public async Task<IActionResult> ChangeAccountDetails(AccountManageChangeAccountDetailsVM vm)
         {
-            var userId = _userSessionService.GetCurrentUserID();
+            var userId = this._userSessionService.GetCurrentUserID();
 
             if (ModelState.IsValid)
             {
-                var user = _userManager.FindByIdAsync(userId).Result;
+                var user = this._userManager.FindByIdAsync(userId).Result;
 
                 user.Firstname = vm.Firstname;
                 user.Lastname = vm.Lastname;
 
-                var result = await _userManager.UpdateAsync(user);
+                var result = await this._userManager.UpdateAsync(user);
 
                 if (result.Succeeded)
                     return RedirectToAction("Profile", "Account", new { id = userId });
@@ -161,12 +160,12 @@ namespace _50Pixels.Controllers
 
         public async Task<IActionResult> ChangePassword(AccountManageChangePasswordVM vm)
         {
-            var userId = _userSessionService.GetCurrentUserID();
+            var userId = this._userSessionService.GetCurrentUserID();
 
             if (ModelState.IsValid)
             {
-                var user = _userManager.FindByIdAsync(userId).Result;
-                var result = await _userManager.ChangePasswordAsync(user,vm.CurrentPassword,vm.Password);
+                var user = this._userManager.FindByIdAsync(userId).Result;
+                var result = await this._userManager.ChangePasswordAsync(user,vm.CurrentPassword,vm.Password);
 
                 if (result.Succeeded)
                     return RedirectToAction("Profile", "Account", new { id = userId });

@@ -30,19 +30,19 @@ namespace _50Pixels.Controllers
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
         {
-            var photo = _photoServeice.GetPhotoById(id);
+            var photo = this._photoServeice.GetPhotoById(id);
 
             var vm = new ViewPhotoViewModel()
             {
                 Id = photo.Id,
                 Title = photo.Title,
                 Path = photo.Path,
-                Views = _photoServeice.IncreasePhotoViews(id),
+                Views = this._photoServeice.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
                 DateUploaded = photo.DateUploaded,
-                DoesUserLikeThePhoto = _likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
-                Likes = _likeService.GetLikesCount(id),
-                ViewerIsTheUploader = photo.UploaderId == _userSessionService.GetCurrentUserID()
+                DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
+                Likes = this._likeService.GetLikesCount(id),
+                ViewerIsTheUploader = photo.UploaderId == this._userSessionService.GetCurrentUserID()
 
             };
             return View(vm);
@@ -59,17 +59,17 @@ namespace _50Pixels.Controllers
                 string photoFileName = "";
 
                 if (vm.Photo != null)
-                    photoFileName = _fileProcessor.SavePhoto(vm.Photo, "Photos"); //save photo in the folder
+                    photoFileName = this._fileProcessor.SavePhoto(vm.Photo, "Photos"); //save photo in the folder
 
                 var photo = new Photo()
                 {
                     Title = vm.Title,
                     Path = photoFileName,
-                    UploaderId = _userSessionService.GetCurrentUserID(),
+                    UploaderId = this._userSessionService.GetCurrentUserID(),
                     DateUploaded = DateTime.Now
                 };
 
-                _photoServeice.SavePhoto(photo); //save photo path in the database
+                this._photoServeice.SavePhoto(photo); //save photo path in the database
                 return RedirectToAction("Index", "Home");
             }
 
@@ -78,8 +78,8 @@ namespace _50Pixels.Controllers
 
         public IActionResult DeletePhoto(int id)
         {
-            if(_photoServeice.DeletePhoto(id))
-                _likeService.DeleteLikes(id);
+            if(this._photoServeice.DeletePhoto(id))
+                this._likeService.DeleteLikes(id);
             
             return RedirectToAction("Index","Home");
         }
@@ -89,7 +89,7 @@ namespace _50Pixels.Controllers
         {
             var vm = new PhotosTrendingViewModel();
 
-            vm.Photos = _photoServeice.RetrieveAllPhotos()
+            vm.Photos = this._photoServeice.RetrieveAllPhotos()
                         .Where(p => p.Views > 10)
                         .OrderByDescending(p => p.Views)
                         .Take(10);

@@ -17,7 +17,7 @@ namespace _50Pixels.Controllers
         {
             var vm = new SearchResultsViewModel();
             vm.SearchKey = SearchKey;
-            vm.Photos = _photoService.SearchPhotoByTitle(SearchKey);
+            vm.Photos = this._photoService.SearchPhotoByTitle(SearchKey);
             return View(vm);
         }
     }

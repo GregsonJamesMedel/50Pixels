@@ -16,13 +16,13 @@ namespace _50Pixels.Controllers
 
         public IActionResult Like(int id)
         {
-            _likeService.LikePhoto(id);
+            this._likeService.LikePhoto(id);
             return RedirectToAction("ViewPhoto", "Photos", new { id = id });
         }
 
         public IActionResult Unlike(int id)
         {
-            _likeService.UnlikePhoto(id);
+            this._likeService.UnlikePhoto(id);
             return RedirectToAction("ViewPhoto", "Photos", new { id = id });
         }
 

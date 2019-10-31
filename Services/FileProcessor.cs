@@ -16,7 +16,7 @@ namespace _50Pixels.Services
 
         public string ChangePhoto(string oldPhotoPath, IFormFile newPhoto)
         {
-            string oldFilePath = Path.Combine(_hostingEnvironment.WebRootPath,"ProfilePics",oldPhotoPath);
+            string oldFilePath = Path.Combine(this._hostingEnvironment.WebRootPath,"ProfilePics",oldPhotoPath);
             System.IO.File.Delete(oldFilePath);
             return SavePhoto(newPhoto,"ProfilePics");
         }
@@ -24,7 +24,7 @@ namespace _50Pixels.Services
         public string SavePhoto(IFormFile photo,string location)
         {
             string uniqueFileName ="";
-            string uploadsFoler = Path.Combine(_hostingEnvironment.WebRootPath, location);
+            string uploadsFoler = Path.Combine(this._hostingEnvironment.WebRootPath, location);
             uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
             string filePath = Path.Combine(uploadsFoler, uniqueFileName);
             photo.CopyTo(new FileStream(filePath, FileMode.Create));

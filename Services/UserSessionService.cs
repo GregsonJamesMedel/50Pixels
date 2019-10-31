@@ -14,7 +14,7 @@ namespace _50Pixels.Services
 
         public string GetCurrentUserID()
         {
-            return  _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return  this._httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
         }
     }
 }
