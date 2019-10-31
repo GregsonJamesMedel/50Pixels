@@ -1,8 +1,10 @@
 using _50Pixels.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace _50Pixels.Controllers
 {
+    [Authorize]
     public class FollowController : Controller
     {
         private readonly IFollowService _followService;

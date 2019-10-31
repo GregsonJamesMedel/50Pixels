@@ -3,7 +3,6 @@ using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
 
@@ -20,7 +19,6 @@ namespace _50Pixels.Controllers
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                 SignInManager<ApplicationUser> signInManager,
-                                IHttpContextAccessor httpContextAccessor,
                                 IUserSessionService userSessionService,
                                 IFollowService followService,
                                 IPhotoService photoService,
@@ -76,18 +74,19 @@ namespace _50Pixels.Controllers
         public IActionResult SignIn() => View();
 
         [HttpPost]
-        public async Task<IActionResult> SignIn(AccountSignInViewModel vm, string returnUrl)
+        public async Task<IActionResult> SignIn(AccountSignInViewModel vm, string ReturnUrl)
         {
             if (ModelState.IsValid)
             {
-                await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
+                var result = await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
 
-                if (returnUrl != null && Url.IsLocalUrl(returnUrl))
+                if(result.Succeeded)
                 {
-                    return LocalRedirect(returnUrl);
+                    if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+                        return Redirect(ReturnUrl);
+                    
+                    return RedirectToAction("Index", "Home");
                 }
-
-                return RedirectToAction("Index", "Home");
             }
 
             return View(vm);
