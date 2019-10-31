@@ -8,6 +8,8 @@ namespace _50Pixels.ViewModels
         public ApplicationUser ApplicationUser { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
         public IEnumerable<Photo> LikedPhotos { get; set; }
+        public IEnumerable<ApplicationUser> Following { get; set; }
+        public IEnumerable<ApplicationUser> Followers { get; set; }
         public bool IsCurrentUserProfile { get; set; }
     }
 }

@@ -17,10 +17,13 @@ namespace _50Pixels.Controllers
         private readonly IPhotoService _photoService;
         private readonly IUserSessionService _userSessionService;
 
+        private readonly IFollowService _followService;
+
         public AccountController(UserManager<ApplicationUser> userManager,
                                 SignInManager<ApplicationUser> signInManager,
                                 IHttpContextAccessor httpContextAccessor,
                                 IUserSessionService userSessionService,
+                                IFollowService followService,
                                 IPhotoService photoService,
                                 IFileProcessor fileProcessor)
         {
@@ -29,6 +32,7 @@ namespace _50Pixels.Controllers
             this._photoService = photoService;
             this._fileProcessor = fileProcessor;
             this._userSessionService = userSessionService;
+            this._followService = followService;
         }
 
         [HttpGet]
@@ -105,6 +109,8 @@ namespace _50Pixels.Controllers
             vm.ApplicationUser = appUser.Result;
             vm.LikedPhotos = _photoService.GetLikedPhotos(id);
             vm.Photos = _photoService.GetPhotosByUploaderId(id);
+            vm.Following = _followService.GetFollowing(id);
+            vm.Followers = _followService.GetFollowers(id);
             vm.IsCurrentUserProfile = appUser.Result.Id == _userSessionService.GetCurrentUserID();
 
             return View(vm);

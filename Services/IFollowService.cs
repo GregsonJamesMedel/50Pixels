@@ -8,7 +8,7 @@ namespace _50Pixels.Services
         bool FollowUser(string userId);
         bool UnFollowUser(string userId);
         bool CheckIfFollower(string userId);
-        IEnumerable<Follow> GetFollowing(string userId);
-        IEnumerable<Follow> GetFollowers(string userId);
+        IEnumerable<ApplicationUser> GetFollowing(string userId);
+        IEnumerable<ApplicationUser> GetFollowers(string userId);
     }
 }
