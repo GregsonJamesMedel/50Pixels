@@ -37,7 +37,7 @@ namespace _50Pixels.Controllers
                 Views = this._photoFileProcessor.PhotoService.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
                 DateUploaded = photo.DateUploaded,
-                DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
+                DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(this._userSessionService.GetCurrentUserID(), id),
                 Likes = this._likeService.GetLikesCount(id),
                 ViewerIsTheUploader = photo.UploaderId == this._userSessionService.GetCurrentUserID()
 

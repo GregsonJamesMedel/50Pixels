@@ -34,12 +34,12 @@ namespace _50Pixels
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/SignIn");
             services.AddPaging();
 
-            services.AddScoped<IPhotoService, PhotoRepository>();
             services.AddScoped<ILikeService, LikeRepository>();
+            services.AddScoped<IFollowService, FollowService>();
             services.AddScoped<IFileProcessor, FileProcessor>();
+            services.AddScoped<IPhotoService, PhotoRepository>();
+            services.AddScoped<IPhotoFileProcessor, PhotoFIleProcessor>();
             services.AddScoped<IUserSessionService, UserSessionService>();
-            services.AddScoped<IFollowService,FollowService>();
-            services.AddScoped<IPhotoFileProcessor,PhotoFIleProcessor>();
 
         }
 

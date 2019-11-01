@@ -4,6 +4,26 @@
 }
 
 <div class="container-fluid" id="uploadWrapper">
-    <h2 class="text-center">Trending Photos</h2>
-    <partial name="_Gallery" model="@Model.Photos" />
+    <h2 class="text-center">Top 10 Trending Photos</h2><hr>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel-group">
+                @foreach (var photo in Model.Photos)
+                {
+                    <a asp-controller="Photos" asp-action="ViewPhoto" asp-route-id="@photo.Id">
+                        <div class="panel panel-warning">
+                            <div class="panel-heading text-center">
+                                <p class="lead">@photo.Title</p>
+                                <p>@photo.Views Views</p>
+                            </div>
+                            <div class="panel-body">
+                                <img src="~/Photos/@photo.Path" alt="@photo.Title" class="img-responsive img-rounded" asp-append-version="true">
+                            </div>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    
 </div>

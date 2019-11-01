@@ -16,7 +16,7 @@
                     @uploaderInfo.Result.Firstname @uploaderInfo.Result.Lastname
                 </h4>
             </a>
-            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" id="viewedPhoto" asp-append-version="true">
+            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" alt="@Model.Title" id="viewedPhoto" asp-append-version="true">
             <div id="margin20">
                 <a class="aColor" href='javascript:history.go(-1)'>Back</a> |
                 <span id="like">
@@ -32,7 +32,7 @@
                         </form>
                     }
                 </span>
-                <a class="aColor" href='javascript:history.go(-1)'>Download</a>
+                <a class="aColor" href='#'>Download</a>
                 @if(@Model.ViewerIsTheUploader)
                 {
                     <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">
@@ -42,7 +42,7 @@
                         <span class="text-warning">| Edit</span>
                     </a>
                 }
-                <span class="pull-right">Date Uploaded: @String.Format("{0:dddd, MMMM d, yyyy}",Model.DateUploaded) | Likes: @Model.Likes | Views: @Model.Views</span>
+                <span class="pull-right">Date Uploaded: @String.Format("{0:MMMM d, yyyy}",Model.DateUploaded) | Likes: @Model.Likes | Views: @Model.Views</span>
             </div>
         </div>
     </div>

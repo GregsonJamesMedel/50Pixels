@@ -7,19 +7,26 @@
 <div class="container-fluid" id="margintop70">
     <div class="row">
         <div class="col-md-3">
-            <img src="~/ProfilePics/@Model.ApplicationUser.PhotoPath" class="img-responsive" asp-append-version="true">
+            <img src="~/ProfilePics/@Model.ApplicationUser.PhotoPath" alt="@Model.ApplicationUser.Firstname" class="img-responsive" asp-append-version="true">
             <h3 class="text-center">
                 @Model.ApplicationUser.Firstname @Model.ApplicationUser.Lastname
             </h3>
                 @if(Model.IsCurrentUserProfile)
                 {
                     <a class="btn btn-warning btn-block" asp-controller="Account" asp-action="Manage" asp-route-id="@Model.ApplicationUser.Id">Manage Account</a>
-                }else{
-                    if(_followService.CheckIfFollower(Model.ApplicationUser.Id)){
+
+                }
+                else
+                {
+
+                    if(_followService.CheckIfFollower(Model.ApplicationUser.Id))
+                    {
                         <form asp-controller="Follow" asp-action="UnFollowUser" asp-route-id="@Model.ApplicationUser.Id" method="post">
                             <button type="submit" class="btn btn-block btn-warning">Unfollow</button>
                         </form>
-                    }else{
+                    }
+                    else
+                    {
                         <form asp-controller="Follow" asp-action="FollowUser" asp-route-id="@Model.ApplicationUser.Id" method="post">
                             <button type="submit" class="btn btn-block btn-warning">Follow</button>
                         </form>
