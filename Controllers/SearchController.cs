@@ -13,12 +13,10 @@ namespace _50Pixels.Controllers
             this._photoService = photoService;
         }
 
-        public IActionResult Results(string SearchKey)
+        public IActionResult Results(SearchResultsViewModel searchVM)
         {
-            var vm = new SearchResultsViewModel();
-            vm.SearchKey = SearchKey;
-            vm.Photos = this._photoService.SearchPhotoByTitle(SearchKey);
-            return View(vm);
+            searchVM.Photos = this._photoService.SearchPhotoByTitle(searchVM.SearchKey);
+            return View(searchVM);
         }
     }
 }

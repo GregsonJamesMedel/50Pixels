@@ -6,6 +6,6 @@ namespace _50Pixels.ViewModels
     public class HomeIndexViewModel
     {
         public IEnumerable<Photo> Photos { get; set; }
-        public string SearchKey { get; set; }
+        public SearchResultsViewModel SearchVM { get; set; }
     }
 }

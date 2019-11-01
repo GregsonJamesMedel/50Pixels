@@ -6,6 +6,7 @@ namespace _50Pixels.ViewModels
     public class SearchResultsViewModel
     {
         public string SearchKey { get; set; }
+        public string SearchType { get; set; }
         public IEnumerable<Photo> Photos { get; set; }
     }
 }

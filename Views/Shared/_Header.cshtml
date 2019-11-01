@@ -1,9 +1,11 @@
+@model SearchResultsViewModel
+
   <div id="header">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
           <h1>Your Favourite Source of Free Stock Photos</h1>
-          <form asp-controller="Search" asp-action="Results" class="form-inline signup" role="form">
+          <form asp-controller="Search" asp-action="Results" class="form-inline signup" role="form" method="post">
             <div class="form-group">
               <input for="SearchKey" name="SearchKey" class="form-control"  placeholder="Search Photos">
             </div>
