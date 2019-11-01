@@ -1,43 +1,40 @@
 using System;
+using System.Linq;
 using _50Pixels.Models;
 using _50Pixels.Services;
 using _50Pixels.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 
 namespace _50Pixels.Controllers
 {
     [Authorize]
     public class PhotosController : Controller
     {
-        private readonly IFileProcessor _fileProcessor;
-        private readonly IPhotoService _photoServeice;
         private readonly ILikeService _likeService;
+        private readonly IPhotoFileProcessor _photoFileProcessor;
         private readonly IUserSessionService _userSessionService;
 
-        public PhotosController(IFileProcessor fileProcessor,
-                                IUserSessionService userSessionService,
-                                IPhotoService photoService,
+        public PhotosController(IUserSessionService userSessionService,
+                                IPhotoFileProcessor photoFileProcessor,
                                 ILikeService likeService)
         {
-            this._fileProcessor = fileProcessor;
-            this._photoServeice = photoService;
             this._userSessionService = userSessionService;
+            this._photoFileProcessor = photoFileProcessor;
             this._likeService = likeService;
         }
 
         [AllowAnonymous]
         public IActionResult ViewPhoto(int id)
         {
-            var photo = this._photoServeice.GetPhotoById(id);
+            var photo = this._photoFileProcessor.PhotoService.GetPhotoById(id);
 
             var vm = new ViewPhotoViewModel()
             {
                 Id = photo.Id,
                 Title = photo.Title,
                 Path = photo.Path,
-                Views = this._photoServeice.IncreasePhotoViews(id),
+                Views = this._photoFileProcessor.PhotoService.IncreasePhotoViews(id),
                 UploaderId = photo.UploaderId,
                 DateUploaded = photo.DateUploaded,
                 DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(_userSessionService.GetCurrentUserID(), id),
@@ -59,7 +56,7 @@ namespace _50Pixels.Controllers
                 string photoFileName = "";
 
                 if (vm.Photo != null)
-                    photoFileName = this._fileProcessor.SavePhoto(vm.Photo, "Photos"); //save photo in the folder
+                    photoFileName = this._photoFileProcessor.FileProcessor.SavePhoto(vm.Photo, "Photos"); //save photo in the folder
 
                 var photo = new Photo()
                 {
@@ -69,7 +66,7 @@ namespace _50Pixels.Controllers
                     DateUploaded = DateTime.Now
                 };
 
-                this._photoServeice.SavePhoto(photo); //save photo path in the database
+                this._photoFileProcessor.PhotoService.SavePhoto(photo); //save photo path in the database
                 return RedirectToAction("Index", "Home");
             }
 
@@ -78,10 +75,10 @@ namespace _50Pixels.Controllers
 
         public IActionResult DeletePhoto(int id)
         {
-            if(this._photoServeice.DeletePhoto(id))
+            if (this._photoFileProcessor.PhotoService.DeletePhoto(id))
                 this._likeService.DeleteLikes(id);
-            
-            return RedirectToAction("Index","Home");
+
+            return RedirectToAction("Index", "Home");
         }
 
         [AllowAnonymous]
@@ -89,7 +86,7 @@ namespace _50Pixels.Controllers
         {
             var vm = new PhotosTrendingViewModel();
 
-            vm.Photos = this._photoServeice.RetrieveAllPhotos()
+            vm.Photos = this._photoFileProcessor.PhotoService.RetrieveAllPhotos()
                         .Where(p => p.Views > 10)
                         .OrderByDescending(p => p.Views)
                         .Take(10);
@@ -100,7 +97,7 @@ namespace _50Pixels.Controllers
         [HttpGet]
         public IActionResult EditPhoto(int id)
         {
-            var photo = this._photoServeice.GetPhotoById(id);
+            var photo = this._photoFileProcessor.PhotoService.GetPhotoById(id);
 
             var model = new PhotosEditPhotoVM();
             model.Id = photo.Id;
@@ -113,15 +110,15 @@ namespace _50Pixels.Controllers
         [HttpPost]
         public IActionResult EditPhoto(PhotosEditPhotoVM vm)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var updatePhoto = new Photo();
                 updatePhoto.Id = vm.Id;
                 updatePhoto.Title = vm.Title;
 
-                if(this._photoServeice.EditPhoto(updatePhoto))
+                if (this._photoFileProcessor.PhotoService.EditPhoto(updatePhoto))
                 {
-                    return RedirectToAction("ViewPhoto",new { id = updatePhoto.Id });
+                    return RedirectToAction("ViewPhoto", new { id = updatePhoto.Id });
                 }
             }
 
