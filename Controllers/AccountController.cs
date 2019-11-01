@@ -12,22 +12,19 @@ namespace _50Pixels.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly IFileProcessor _fileProcessor;
-        private readonly IPhotoService _photoService;
         private readonly IUserSessionService _userSessionService;
         private readonly IFollowService _followService;
+        private readonly IPhotoFileProcessor _photoFileProcessor;
 
         public AccountController(UserManager<ApplicationUser> userManager,
                                 SignInManager<ApplicationUser> signInManager,
                                 IUserSessionService userSessionService,
-                                IFollowService followService,
-                                IPhotoService photoService,
-                                IFileProcessor fileProcessor)
+                                IPhotoFileProcessor photoFileProcessor,
+                                IFollowService followService)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
-            this._photoService = photoService;
-            this._fileProcessor = fileProcessor;
+            this._photoFileProcessor = photoFileProcessor;
             this._userSessionService = userSessionService;
             this._followService = followService;
         }
@@ -43,7 +40,7 @@ namespace _50Pixels.Controllers
                 string photoFileName = "no-photo.png";
 
                 if (vm.Photo != null)
-                    photoFileName = this._fileProcessor.SavePhoto(vm.Photo, "ProfilePics");
+                    photoFileName = this._photoFileProcessor.FileProcessor.SavePhoto(vm.Photo, "ProfilePics");
 
                 var user = new ApplicationUser()
                 {
@@ -105,8 +102,8 @@ namespace _50Pixels.Controllers
 
             var vm = new AccountProfileViewModel();
             vm.ApplicationUser = appUser.Result;
-            vm.LikedPhotos = this._photoService.GetLikedPhotos(id);
-            vm.Photos = this._photoService.GetPhotosByUploaderId(id);
+            vm.LikedPhotos = this._photoFileProcessor.PhotoService.GetLikedPhotos(id);
+            vm.Photos = this._photoFileProcessor.PhotoService.GetPhotosByUploaderId(id);
             vm.Following = this._followService.GetFollowing(id);
             vm.Followers = this._followService.GetFollowers(id);
             vm.IsCurrentUserProfile = appUser.Result.Id == this._userSessionService.GetCurrentUserID();
@@ -126,7 +123,7 @@ namespace _50Pixels.Controllers
         {
             var userId = this._userSessionService.GetCurrentUserID();
             var user = this._userManager.FindByIdAsync(userId).Result;
-            var newPhotoPath = this._fileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
+            var newPhotoPath = this._photoFileProcessor.FileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
 
             user.PhotoPath = newPhotoPath;
             var updateResult = await this._userManager.UpdateAsync(user);

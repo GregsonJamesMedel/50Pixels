@@ -39,6 +39,7 @@ namespace _50Pixels
             services.AddScoped<IFileProcessor, FileProcessor>();
             services.AddScoped<IUserSessionService, UserSessionService>();
             services.AddScoped<IFollowService,FollowService>();
+            services.AddScoped<IPhotoFileProcessor,PhotoFIleProcessor>();
 
         }
 
