@@ -25,12 +25,36 @@
 
     <h2 class="text-center">Search Results</h2>
 
-    @if(Model.Photos.Any())
+    @if(Model.SearchType == 1.ToString())
     {
+        if(!Model.ApplicationUsers.Any())
+        {
+           <h3 class="text-danger text-center">No results found</h3>
+        }
+
+        <div class="row">
+
+            @foreach(var appUser in Model.ApplicationUsers)
+            {
+                <a asp-controller="Account" asp-action="Profile" asp-route-id="@appUser.Id" >
+                    <div class="panel panel-warning col-md-2 col-md-offset-1">
+                        <div class="panel-heading text-center">@appUser.Firstname @appUser.Lastname</div>
+                        <div class="panel-body">
+                            <img src="~/ProfilePics/@appUser.PhotoPath" class="img-responsive img-rounded">
+                        </div>
+                    </div>
+                </a>
+            }
+           </div>
+    }
+    else
+    {
+        if(!Model.Photos.Any())
+        {
+            <h3 class="text-danger text-center">No results found</h3>
+        }
+
         <partial name="_Gallery" model="@Model.Photos" />
-    }else
-    {
-        <h3 class="text-danger text-center">No Results Found</h3>
     }
 
 </div>
