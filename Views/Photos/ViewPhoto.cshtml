@@ -32,7 +32,7 @@
                         </form>
                     }
                 </span>
-                <a class="aColor" href='#'>Download</a>
+                <a class="aColor" href='~/Photos/@Model.Path'>Download</a>
                 @if(@Model.ViewerIsTheUploader)
                 {
                     <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">

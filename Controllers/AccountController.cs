@@ -75,7 +75,7 @@ namespace _50Pixels.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, isPersistent: false, false);
+                var result = await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, false, false);
 
                 if(result.Succeeded)
                 {
@@ -84,6 +84,7 @@ namespace _50Pixels.Controllers
                     
                     return RedirectToAction("Index", "Home");
                 }
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
 
             return View(vm);
