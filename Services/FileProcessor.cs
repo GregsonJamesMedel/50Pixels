@@ -16,14 +16,17 @@ namespace _50Pixels.Services
 
         public string ChangePhoto(string oldPhotoPath, IFormFile newPhoto)
         {
-            string oldFilePath = Path.Combine(this._hostingEnvironment.WebRootPath,"ProfilePics",oldPhotoPath);
-            System.IO.File.Delete(oldFilePath);
-            return SavePhoto(newPhoto,"ProfilePics");
+            if (oldPhotoPath != "no-photo.png")
+            {
+                string oldFilePath = Path.Combine(this._hostingEnvironment.WebRootPath, "ProfilePics", oldPhotoPath);
+                System.IO.File.Delete(oldFilePath);
+            }
+            return SavePhoto(newPhoto, "ProfilePics");
         }
 
-        public string SavePhoto(IFormFile photo,string location)
+        public string SavePhoto(IFormFile photo, string location)
         {
-            string uniqueFileName ="";
+            string uniqueFileName = "";
             string uploadsFoler = Path.Combine(this._hostingEnvironment.WebRootPath, location);
             uniqueFileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
             string filePath = Path.Combine(uploadsFoler, uniqueFileName);
