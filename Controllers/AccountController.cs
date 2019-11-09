@@ -77,11 +77,11 @@ namespace _50Pixels.Controllers
             {
                 var result = await this._signInManager.PasswordSignInAsync(vm.Email, vm.Password, false, false);
 
-                if(result.Succeeded)
+                if (result.Succeeded)
                 {
                     if (!string.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
                         return Redirect(ReturnUrl);
-                    
+
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
@@ -97,25 +97,30 @@ namespace _50Pixels.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Profile(string id)
+        public async Task<IActionResult> Profile(string id)
         {
-            var appUser = this._userManager.FindByIdAsync(id);
+            var appUser = await this._userManager.FindByIdAsync(id);
 
-            var vm = new AccountProfileViewModel();
-            vm.ApplicationUser = appUser.Result;
-            vm.LikedPhotos = this._photoFileProcessor.PhotoService.GetLikedPhotos(id);
-            vm.Photos = this._photoFileProcessor.PhotoService.GetPhotosByUploaderId(id);
-            vm.Following = this._followService.GetFollowing(id);
-            vm.Followers = this._followService.GetFollowers(id);
-            vm.IsCurrentUserProfile = appUser.Result.Id == this._userSessionService.GetCurrentUserID();
+            if (appUser != null)
+            {
+                var vm = new AccountProfileViewModel();
+                vm.ApplicationUser = appUser;
+                vm.LikedPhotos = this._photoFileProcessor.PhotoService.GetLikedPhotos(id);
+                vm.Photos = this._photoFileProcessor.PhotoService.GetPhotosByUploaderId(id);
+                vm.Following = this._followService.GetFollowing(id);
+                vm.Followers = this._followService.GetFollowers(id);
+                vm.IsCurrentUserProfile = appUser.Id == this._userSessionService.GetCurrentUserID();
 
-            return View(vm);
+                return View(vm);
+            }
+
+            return RedirectToAction("ErrorNotFound", "Error");
         }
 
-        public IActionResult Manage(string Id)
+        public async Task<IActionResult> Manage(string Id)
         {
             var model = new ManageAccountVM();
-            model.ApplicationUser = this._userManager.FindByIdAsync(Id).Result;
+            model.ApplicationUser = await this._userManager.FindByIdAsync(Id);
 
             return View(model);
         }
@@ -123,7 +128,7 @@ namespace _50Pixels.Controllers
         public async Task<IActionResult> ChangeProfilePhoto(ManageAccountVM vm)
         {
             var userId = this._userSessionService.GetCurrentUserID();
-            var user = this._userManager.FindByIdAsync(userId).Result;
+            var user = await this._userManager.FindByIdAsync(userId);
             var newPhotoPath = this._photoFileProcessor.FileProcessor.ChangePhoto(user.PhotoPath, vm.Photo);
 
             user.PhotoPath = newPhotoPath;
@@ -141,7 +146,7 @@ namespace _50Pixels.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = this._userManager.FindByIdAsync(userId).Result;
+                var user = await this._userManager.FindByIdAsync(userId);
 
                 user.Firstname = vm.Firstname;
                 user.Lastname = vm.Lastname;
@@ -161,8 +166,8 @@ namespace _50Pixels.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = this._userManager.FindByIdAsync(userId).Result;
-                var result = await this._userManager.ChangePasswordAsync(user,vm.CurrentPassword,vm.Password);
+                var user = await this._userManager.FindByIdAsync(userId);
+                var result = await this._userManager.ChangePasswordAsync(user, vm.CurrentPassword, vm.Password);
 
                 if (result.Succeeded)
                     return RedirectToAction("Profile", "Account", new { id = userId });
