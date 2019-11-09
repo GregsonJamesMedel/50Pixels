@@ -28,21 +28,28 @@ namespace _50Pixels.Controllers
         public IActionResult ViewPhoto(int id)
         {
             var photo = this._photoFileProcessor.PhotoService.GetPhotoById(id);
+            var userId = this._userSessionService.GetCurrentUserID();
 
-            var vm = new ViewPhotoViewModel()
+            if (photo != null)
             {
-                Id = photo.Id,
-                Title = photo.Title,
-                Path = photo.Path,
-                Views = this._photoFileProcessor.PhotoService.IncreasePhotoViews(id),
-                UploaderId = photo.UploaderId,
-                DateUploaded = photo.DateUploaded,
-                DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(this._userSessionService.GetCurrentUserID(), id),
-                Likes = this._likeService.GetLikesCount(id),
-                ViewerIsTheUploader = photo.UploaderId == this._userSessionService.GetCurrentUserID()
+                var vm = new ViewPhotoViewModel()
+                {
+                    Id = photo.Id,
+                    Title = photo.Title,
+                    Path = photo.Path,
+                    Views = this._photoFileProcessor.PhotoService.IncreasePhotoViews(id),
+                    UploaderId = photo.UploaderId,
+                    DateUploaded = photo.DateUploaded,
+                    DoesUserLikeThePhoto = this._likeService.DoesUserLikeThePhoto(userId, id),
+                    Likes = this._likeService.GetLikesCount(id),
+                    ViewerIsTheUploader = photo.UploaderId == userId
 
-            };
-            return View(vm);
+                };
+                return View(vm);
+            }
+
+            return RedirectToAction("ErrorNotFound", "Error");
+
         }
 
         [HttpGet]
@@ -75,10 +82,18 @@ namespace _50Pixels.Controllers
 
         public IActionResult DeletePhoto(int id)
         {
-            if (this._photoFileProcessor.PhotoService.DeletePhoto(id))
-                this._likeService.DeleteLikes(id);
+            var photo = this._photoFileProcessor.PhotoService.GetPhotoById(id);
 
-            return RedirectToAction("Index", "Home");
+            if (photo != null)
+            {
+
+                if (this._photoFileProcessor.PhotoService.DeletePhoto(id))
+                    this._likeService.DeleteLikes(id);
+
+                return RedirectToAction("Index", "Home");
+            }
+
+            return RedirectToAction("ErrorNotFound", "Error");
         }
 
         [AllowAnonymous]
@@ -99,12 +114,16 @@ namespace _50Pixels.Controllers
         {
             var photo = this._photoFileProcessor.PhotoService.GetPhotoById(id);
 
-            var model = new PhotosEditPhotoVM();
-            model.Id = photo.Id;
-            model.Title = photo.Title;
-            model.PhotoPath = photo.Path;
+            if (photo != null)
+            {
+                var model = new PhotosEditPhotoVM();
+                model.Id = photo.Id;
+                model.Title = photo.Title;
+                model.PhotoPath = photo.Path;
 
-            return View(model);
+                return View(model);
+            }
+            return RedirectToAction("ErrorNotFound", "Error");
         }
 
         [HttpPost]
