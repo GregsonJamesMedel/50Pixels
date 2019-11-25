@@ -3005,118 +3005,118 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 703
   },
   "RootNamespace": "_50Pixels",
   "Documents": [
     {
-      "FilePath": "Views/Shared/_Follow.cshtml",
-      "TargetPath": "Views/Shared/_Follow.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewStart.cshtml",
-      "TargetPath": "Views/_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Home/Index.cshtml",
-      "TargetPath": "Views/Home/Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Error/ErrorNotFound.cshtml",
-      "TargetPath": "Views/Error/ErrorNotFound.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Photos/Upload.cshtml",
-      "TargetPath": "Views/Photos/Upload.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Account/SignIn.cshtml",
-      "TargetPath": "Views/Account/SignIn.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Search/Results.cshtml",
-      "TargetPath": "Views/Search/Results.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_ManageAccountDetails.cshtml",
-      "TargetPath": "Views/Shared/_ManageAccountDetails.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_ManageAccountChangePassword.cshtml",
-      "TargetPath": "Views/Shared/_ManageAccountChangePassword.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_ManageAccountChangePhoto.cshtml",
-      "TargetPath": "Views/Shared/_ManageAccountChangePhoto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/_ViewImports.cshtml",
-      "TargetPath": "Views/_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Photos/ViewPhoto.cshtml",
-      "TargetPath": "Views/Photos/ViewPhoto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_NavBar.cshtml",
-      "TargetPath": "Views/Shared/_NavBar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Account/Manage.cshtml",
-      "TargetPath": "Views/Account/Manage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Account/Profile.cshtml",
-      "TargetPath": "Views/Account/Profile.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_GalleryWithPagination.cshtml",
-      "TargetPath": "Views/Shared/_GalleryWithPagination.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Account/SignUp.cshtml",
-      "TargetPath": "Views/Account/SignUp.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Shared/_Header.cshtml",
-      "TargetPath": "Views/Shared/_Header.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Photos/EditPhoto.cshtml",
-      "TargetPath": "Views/Photos/EditPhoto.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "Views/Photos/Trending.cshtml",
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Photos/Trending.cshtml",
       "TargetPath": "Views/Photos/Trending.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_Gallery.cshtml",
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Account/Profile.cshtml",
+      "TargetPath": "Views/Account/Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_ManageAccountDetails.cshtml",
+      "TargetPath": "Views/Shared/_ManageAccountDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Error/ErrorNotFound.cshtml",
+      "TargetPath": "Views/Error/ErrorNotFound.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_ManageAccountChangePassword.cshtml",
+      "TargetPath": "Views/Shared/_ManageAccountChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_Follow.cshtml",
+      "TargetPath": "Views/Shared/_Follow.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/_ViewStart.cshtml",
+      "TargetPath": "Views/_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Account/Manage.cshtml",
+      "TargetPath": "Views/Account/Manage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_Gallery.cshtml",
       "TargetPath": "Views/Shared/_Gallery.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "Views/Shared/_Layout.cshtml",
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Search/Results.cshtml",
+      "TargetPath": "Views/Search/Results.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_Header.cshtml",
+      "TargetPath": "Views/Shared/_Header.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Photos/EditPhoto.cshtml",
+      "TargetPath": "Views/Photos/EditPhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_NavBar.cshtml",
+      "TargetPath": "Views/Shared/_NavBar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Home/Index.cshtml",
+      "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_GalleryWithPagination.cshtml",
+      "TargetPath": "Views/Shared/_GalleryWithPagination.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Shared/_ManageAccountChangePhoto.cshtml",
+      "TargetPath": "Views/Shared/_ManageAccountChangePhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/_ViewImports.cshtml",
+      "TargetPath": "Views/_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Account/SignIn.cshtml",
+      "TargetPath": "Views/Account/SignIn.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Photos/ViewPhoto.cshtml",
+      "TargetPath": "Views/Photos/ViewPhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Account/SignUp.cshtml",
+      "TargetPath": "Views/Account/SignUp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/medel/Documents/Projects/50Pixels/Views/Photos/Upload.cshtml",
+      "TargetPath": "Views/Photos/Upload.cshtml",
       "FileKind": "mvc"
     }
   ],

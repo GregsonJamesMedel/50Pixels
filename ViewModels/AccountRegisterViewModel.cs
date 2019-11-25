@@ -34,6 +34,5 @@ namespace _50Pixels.ViewModels
         [MinLength(2)]
         [MaxLength(20)]
         public string Lastname { get; set; }
-        public IFormFile Photo { get; set; }
     }
 }

@@ -33,13 +33,6 @@
                     <input asp-for="@Model.Lastname" class="form-control">
                     <span asp-validation-for="@Model.Lastname" class="text-danger"></span>
                 </div>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <label class="custom-file-label" asp-for="@Model.Photo"></label><span> (Optional)</span>
-                        <input asp-for="@Model.Photo" class="custom-file-input">
-                        <span asp-validation-for="@Model.Photo" class="text-danger"></span>
-                    </div>
-                </div>
                 <button class="btn btn-warning pull-right" type="submit">Submit</button>
             </div>
         </form>

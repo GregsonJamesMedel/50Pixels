@@ -37,18 +37,13 @@ namespace _50Pixels.Controllers
         {
             if (ModelState.IsValid)
             {
-                string photoFileName = "no-photo.png";
-
-                if (vm.Photo != null)
-                    photoFileName = this._photoFileProcessor.FileProcessor.SavePhoto(vm.Photo, "ProfilePics");
-
-                var user = new ApplicationUser()
+                var user = new ApplicationUser
                 {
                     Email = vm.Email,
                     UserName = vm.Email,
                     Firstname = vm.Firstname,
                     Lastname = vm.Lastname,
-                    PhotoPath = photoFileName
+                    PhotoPath = "no-photo.png"
                 };
 
                 var result = await this._userManager.CreateAsync(user, vm.Password);

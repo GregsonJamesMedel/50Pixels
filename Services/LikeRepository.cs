@@ -1,8 +1,6 @@
+using System.Linq;
 using _50Pixels.Data;
 using _50Pixels.Models;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace _50Pixels.Services
 {

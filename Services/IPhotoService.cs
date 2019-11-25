@@ -9,7 +9,6 @@ namespace _50Pixels.Services
         Photo GetPhotoById(int id);
         int IncreasePhotoViews(int Id);
         bool DeletePhoto(int Id);
-
         bool EditPhoto(Photo photo);
         IEnumerable<Photo> GetPhotosByUploaderId(string id);
         IEnumerable<Photo> RetrieveAllPhotos();
