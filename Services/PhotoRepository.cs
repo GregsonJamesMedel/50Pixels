@@ -9,10 +9,12 @@ namespace _50Pixels.Services
     public class PhotoRepository : IPhotoService
     {
         private readonly AppDbContext _context;
+        private readonly IFileProcessor _fileProcessor;
 
-        public PhotoRepository(AppDbContext context)
+        public PhotoRepository(AppDbContext context, IFileProcessor fileProcessor)
         {
             this._context = context;
+            this._fileProcessor = fileProcessor;
         }
 
         public bool DeletePhoto(int Id)
@@ -20,12 +22,13 @@ namespace _50Pixels.Services
             var photo = GetPhotoById(Id);
             this._context.Photos.Remove(photo);
             this._context.SaveChanges();
+            this._fileProcessor.DeletePhoto(photo.Path,"Photos");
             return GetPhotoById(Id) != null ? false : true;
         }
 
         public Photo GetPhotoById(int id)
         {
-            return this._context.Photos.FirstOrDefault(photo => photo.Id == id);
+            return this._context.Photos.FirstOrDefault(p => p.Id == id);
         }
 
         public IEnumerable<Photo> GetPhotosByUploaderId(string id)
@@ -78,5 +81,6 @@ namespace _50Pixels.Services
 
             return result > 0 ? true : false;
         }
+
     }
 }

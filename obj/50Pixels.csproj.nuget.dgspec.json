@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/medel/Documents/Projects/50Pixels/50Pixels.csproj": {}
+    "/media/medel/Master/Projects/50Pixels/50Pixels.csproj": {}
   },
   "projects": {
-    "/home/medel/Documents/Projects/50Pixels/50Pixels.csproj": {
+    "/media/medel/Master/Projects/50Pixels/50Pixels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/medel/Documents/Projects/50Pixels/50Pixels.csproj",
+        "projectUniqueName": "/media/medel/Master/Projects/50Pixels/50Pixels.csproj",
         "projectName": "50Pixels",
-        "projectPath": "/home/medel/Documents/Projects/50Pixels/50Pixels.csproj",
+        "projectPath": "/media/medel/Master/Projects/50Pixels/50Pixels.csproj",
         "packagesPath": "/home/medel/.nuget/packages/",
-        "outputPath": "/home/medel/Documents/Projects/50Pixels/obj/",
+        "outputPath": "/media/medel/Master/Projects/50Pixels/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/share/dotnet/sdk/NuGetFallbackFolder"

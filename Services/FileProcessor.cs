@@ -33,5 +33,11 @@ namespace _50Pixels.Services
             photo.CopyTo(new FileStream(filePath, FileMode.Create));
             return uniqueFileName;
         }
+
+        public void DeletePhoto(string path, string location)
+        {
+            string deletionPath = Path.Combine(this._hostingEnvironment.WebRootPath,location,path);
+            System.IO.File.Delete(deletionPath);
+        }
     }
 }
