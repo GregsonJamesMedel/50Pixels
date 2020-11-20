@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authorization;
+using System;
 
 namespace _50Pixels.Controllers
 {
@@ -43,7 +44,8 @@ namespace _50Pixels.Controllers
                     UserName = vm.Email,
                     Firstname = vm.Firstname,
                     Lastname = vm.Lastname,
-                    PhotoPath = "no-photo.png"
+                    PhotoPath = "no-photo.png",
+                    RegisteredDate = DateTime.Now
                 };
 
                 var result = await this._userManager.CreateAsync(user, vm.Password);

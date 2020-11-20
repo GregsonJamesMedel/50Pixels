@@ -11,10 +11,14 @@
             <h3 class="text-center">
                 @Model.ApplicationUser.Firstname @Model.ApplicationUser.Lastname
             </h3>
+            <p class="text-center">
+                @Model.ApplicationUser.Email <br> 
+                <span style="font-weight: bold;">Member since:</span> @String.Format("{0:MMMM d, yyyy}",Model.ApplicationUser.RegisteredDate)
+            </p>
+            
                 @if(Model.IsCurrentUserProfile)
                 {
                     <a class="btn btn-warning btn-block" asp-controller="Account" asp-action="Manage" asp-route-id="@Model.ApplicationUser.Id">Manage Account</a>
-
                 }
                 else
                 {
