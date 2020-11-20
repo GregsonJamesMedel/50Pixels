@@ -218,3 +218,4 @@
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.dll
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.pdb
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.csproj.CopyComplete
+/media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Footer.g.cshtml.cs

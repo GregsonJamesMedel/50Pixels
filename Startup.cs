@@ -29,7 +29,12 @@ namespace _50Pixels
             services.AddDbContext<AppDbContext>(options =>
             options.UseMySql(this._config.GetConnectionString("50PixelsDb")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => {
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<AppDbContext>();
 
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/SignIn");
             services.AddPaging();
