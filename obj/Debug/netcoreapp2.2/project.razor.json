@@ -1939,6 +1939,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Footer.cshtml",
+      "TargetPath": "Views\\Shared\\_Footer.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/media/medel/Master/Projects/50Pixels/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
