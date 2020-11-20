@@ -11,7 +11,8 @@
                     <input asp-for="SearchKey" class="form-control" placeholder="Search Key">
                 </div>
                 <div class="col-md-2">
-                    <select asp-for="SearchType" asp-items="Html.GetEnumSelectList<SearchType>()" class="form-control col-md-12">
+                    <select asp-for="SearchType" asp-items="Html.GetEnumSelectList<SearchType>()"
+                        class="form-control col-md-12">
                     </select>
                 </div>
                 <div class="col-md-2">
@@ -20,36 +21,53 @@
             </form>
         </div>
     </div>
-    
+
     <hr>
 
     <h2 class="text-center">Search Results</h2>
 
-    @if(Model.SearchType == 1.ToString())
+    @if (Model.SearchType == 1.ToString())
     {
-        if(!Model.ApplicationUsers.Any())
+        if (!Model.ApplicationUsers.Any())
         {
-           <h3 class="text-danger text-center">No results found</h3>
+            <h3 class="text-danger text-center">No results found</h3>
         }
 
         <div class="row">
 
-            @foreach(var appUser in Model.ApplicationUsers)
+            @foreach (var appUser in Model.ApplicationUsers)
             {
-                <a asp-controller="Account" asp-action="Profile" asp-route-id="@appUser.Id" >
+                @* <a asp-controller="Account" asp-action="Profile" asp-route-id="@appUser.Id">
                     <div class="panel panel-warning col-md-2 col-md-offset-1">
-                        <div class="panel-heading text-center">@appUser.Firstname @appUser.Lastname</div>
-                        <div class="panel-body">
-                            <img src="~/ProfilePics/@appUser.PhotoPath" class="img-responsive img-rounded">
-                        </div>
+                    <div class="panel-heading text-center">@appUser.Firstname @appUser.Lastname</div>
+                    <div class="panel-body">
+                    <img src="~/ProfilePics/@appUser.PhotoPath" class="img-responsive img-rounded">
                     </div>
-                </a>
+                    </div>
+                    </a> *@
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+
+                        <a asp-controller="Account" asp-action="Profile" asp-route-id="@appUser.Id" class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <img src="~/ProfilePics/@appUser.PhotoPath" class="img-responsive"
+                                        style="max-height: 60px;">
+                                </div>
+                                <div class="col-md-11">
+                                    <h4>@appUser.Firstname @appUser.Lastname</h4>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             }
-           </div>
+        </div>
     }
     else
     {
-        if(!Model.Photos.Any())
+        if (!Model.Photos.Any())
         {
             <h3 class="text-danger text-center">No results found</h3>
         }
