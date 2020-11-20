@@ -102,9 +102,8 @@ namespace _50Pixels.Controllers
             var vm = new PhotosTrendingViewModel();
 
             vm.Photos = this._photoFileProcessor.PhotoService.RetrieveAllPhotos()
-                        .Where(p => p.Views > 10)
-                        .OrderByDescending(p => p.Views)
-                        .Take(10);
+                        .Where(p => p.Views >= 5)
+                        .OrderByDescending(p => p.Views);
 
             return View(vm);
         }
