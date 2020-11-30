@@ -142,6 +142,5 @@ namespace _50Pixels.Controllers
 
             return View(vm);
         }
-
     }
 }
