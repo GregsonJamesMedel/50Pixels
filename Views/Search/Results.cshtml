@@ -6,7 +6,7 @@
 <div class="container-fluid" id="margintop70">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form asp-controller="Search" asp-action="Results" method="post">
+            <form asp-controller="Search" asp-action="Results" method="get">
                 <div class="col-md-8">
                     <input asp-for="SearchKey" class="form-control" placeholder="Search Key">
                 </div>
@@ -37,15 +37,6 @@
 
             @foreach (var appUser in Model.ApplicationUsers)
             {
-                @* <a asp-controller="Account" asp-action="Profile" asp-route-id="@appUser.Id">
-                    <div class="panel panel-warning col-md-2 col-md-offset-1">
-                    <div class="panel-heading text-center">@appUser.Firstname @appUser.Lastname</div>
-                    <div class="panel-body">
-                    <img src="~/ProfilePics/@appUser.PhotoPath" class="img-responsive img-rounded">
-                    </div>
-                    </div>
-                    </a> *@
-
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 
