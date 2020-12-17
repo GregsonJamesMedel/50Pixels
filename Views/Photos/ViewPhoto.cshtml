@@ -12,38 +12,43 @@
             <h2 class="text-center">@Model.Title</h2>
             <a asp-controller="Account" asp-action="Profile" asp-route-id="@Model.UploaderId" class="text-center">
                 <h4>
-                    <i class="fa fa-camera"></i> 
+                    <i class="fa fa-camera"></i>
                     @uploaderInfo.Result.Firstname @uploaderInfo.Result.Lastname
                 </h4>
             </a>
-            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" alt="@Model.Title" id="viewedPhoto" asp-append-version="true">
+            <img class="img-responsive img-rounded" src="~/Photos/@Model.Path" alt="@Model.Title" id="viewedPhoto"
+                asp-append-version="true">
             <div id="margin20">
                 <a class="aColor" href='javascript:history.go(-1)'>Back</a> |
                 <span id="like">
-                    @if(Model.DoesUserLikeThePhoto)
+                    @if (Model.DoesUserLikeThePhoto)
                     {
-                        <form asp-controller="Reaction" asp-action="Unlike" asp-route-id="@Model.Id" method="post" id="unlikeform">
+                        <form asp-controller="Reaction" asp-action="Unlike" asp-route-id="@Model.Id" method="post"
+                            id="unlikeform">
                             <a id="unlikeButton" class="aColor">Unlike</a> |
                         </form>
                     }else
                     {
-                        <form asp-controller="Reaction" asp-action="Like" asp-route-id="@Model.Id" method="post" id="likeform">
+                        <form asp-controller="Reaction" asp-action="Like" asp-route-id="@Model.Id" method="post"
+                            id="likeform">
                             <a id="likeButton" class="aColor">Like</a> |
                         </form>
                     }
-                </span>
-                <a class="aColor" href='~/Photos/@Model.Path'>Download</a>
-                @if(@Model.ViewerIsTheUploader)
+                    </span>
+                    <a class="aColor" href='~/Photos/@Model.Path'>Download</a>
+                    @if (@Model.ViewerIsTheUploader)
                 {
                     <a class="text-danger" asp-controller="Photos" asp-action="DeletePhoto" asp-route-id="@Model.Id">
                         <span class="text-danger">| Delete</span>
                     </a>
+
                     <a class="text-danger" asp-controller="Photos" asp-action="EditPhoto" asp-route-id="@Model.Id">
                         <span class="text-warning">| Edit</span>
                     </a>
                 }
-                <span class="pull-right">Date Uploaded: @String.Format("{0:MMMM d, yyyy}",Model.DateUploaded) | Likes: @Model.Likes | Views: @Model.Views</span>
+                    <span class="pull-right">Date Uploaded: @String.Format("{0:MMMM d, yyyy}",Model.DateUploaded) | Likes:
+                        @Model.Likes | Views: @Model.Views</span>
+                </div>
             </div>
         </div>
     </div>
-</div>

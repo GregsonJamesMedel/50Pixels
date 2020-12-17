@@ -202,6 +202,7 @@
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Photos/ViewPhoto.g.cshtml.cs
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Search/Results.g.cshtml.cs
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Follow.g.cshtml.cs
+/media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Footer.g.cshtml.cs
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Gallery.g.cshtml.cs
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_GalleryWithPagination.g.cshtml.cs
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Header.g.cshtml.cs
@@ -218,4 +219,3 @@
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.dll
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.pdb
 /media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/50Pixels.csproj.CopyComplete
-/media/medel/Master/Projects/50Pixels/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_Footer.g.cshtml.cs
