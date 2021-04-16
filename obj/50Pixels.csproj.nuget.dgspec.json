@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "/media/medel/Master/Projects/50Pixels/50Pixels.csproj": {}
+    "C:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\50Pixels.csproj": {}
   },
   "projects": {
-    "/media/medel/Master/Projects/50Pixels/50Pixels.csproj": {
+    "C:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\50Pixels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/media/medel/Master/Projects/50Pixels/50Pixels.csproj",
+        "projectUniqueName": "C:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\50Pixels.csproj",
         "projectName": "50Pixels",
-        "projectPath": "/media/medel/Master/Projects/50Pixels/50Pixels.csproj",
-        "packagesPath": "/home/medel/.nuget/packages/",
-        "outputPath": "/media/medel/Master/Projects/50Pixels/obj/",
+        "projectPath": "C:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\50Pixels.csproj",
+        "packagesPath": "C:\\Users\\GregsonJamesMedel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/home/medel/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\GregsonJamesMedel\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.2"

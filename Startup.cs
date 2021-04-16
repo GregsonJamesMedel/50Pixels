@@ -45,10 +45,11 @@ namespace _50Pixels
             services.AddScoped<IPhotoService, PhotoRepository>();
             services.AddScoped<IPhotoFileProcessor, PhotoFIleProcessor>();
             services.AddScoped<IUserSessionService, UserSessionService>();
+            services.AddScoped<IDbSeeder,DbSeeder>();
 
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IDbSeeder seeder)
         {
             if (env.IsDevelopment())
             {
@@ -60,6 +61,8 @@ namespace _50Pixels
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+
+            seeder.Seed();
         }
     }
 }

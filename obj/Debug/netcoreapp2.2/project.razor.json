@@ -1,5 +1,5 @@
 {
-  "FilePath": "/media/medel/Master/Projects/50Pixels/50Pixels.csproj",
+  "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\50Pixels.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -12,7 +12,7 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 1166456464,
+        "HashCode": -1243270949,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -209,7 +209,7 @@
         }
       },
       {
-        "HashCode": 993244483,
+        "HashCode": -1693306798,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.CacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -336,7 +336,7 @@
         }
       },
       {
-        "HashCode": -1672675258,
+        "HashCode": 691347310,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.DistributedCacheTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -468,7 +468,7 @@
         }
       },
       {
-        "HashCode": 1712692349,
+        "HashCode": -968928787,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.EnvironmentTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -514,7 +514,7 @@
         }
       },
       {
-        "HashCode": -1961503105,
+        "HashCode": 494058107,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormActionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -931,7 +931,7 @@
         }
       },
       {
-        "HashCode": 429167704,
+        "HashCode": 1976618017,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1033,7 +1033,7 @@
         }
       },
       {
-        "HashCode": -885852021,
+        "HashCode": 1656044842,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ImageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1079,7 +1079,7 @@
         }
       },
       {
-        "HashCode": 419827825,
+        "HashCode": 956186392,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1149,7 +1149,7 @@
         }
       },
       {
-        "HashCode": -237183403,
+        "HashCode": 2070792935,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1182,7 +1182,7 @@
         }
       },
       {
-        "HashCode": -816740091,
+        "HashCode": -706578553,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.LinkTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1378,7 +1378,7 @@
         }
       },
       {
-        "HashCode": -1340604155,
+        "HashCode": -1161674847,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.OptionTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1406,7 +1406,7 @@
         }
       },
       {
-        "HashCode": 851464913,
+        "HashCode": -86754519,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1487,7 +1487,7 @@
         }
       },
       {
-        "HashCode": -229449804,
+        "HashCode": -15936578,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ScriptTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1640,7 +1640,7 @@
         }
       },
       {
-        "HashCode": 356739912,
+        "HashCode": 1382549104,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1699,7 +1699,7 @@
         }
       },
       {
-        "HashCode": -80937417,
+        "HashCode": 1490874892,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1741,7 +1741,7 @@
         }
       },
       {
-        "HashCode": -1889275495,
+        "HashCode": 1447650283,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationMessageTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1773,7 +1773,7 @@
         }
       },
       {
-        "HashCode": -859101446,
+        "HashCode": -2138081554,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.Mvc.TagHelpers",
@@ -1807,7 +1807,7 @@
         }
       },
       {
-        "HashCode": -1442333404,
+        "HashCode": 1482330922,
         "Kind": "ITagHelper",
         "Name": "Microsoft.AspNetCore.SpaServices.Prerendering.PrerenderTagHelper",
         "AssemblyName": "Microsoft.AspNetCore.SpaServices",
@@ -1867,7 +1867,7 @@
         }
       },
       {
-        "HashCode": 304453417,
+        "HashCode": 1400973740,
         "Kind": "MVC.ViewComponent",
         "Name": "__Generated__PagerViewComponentTagHelper",
         "AssemblyName": "ReflectionIT.Mvc.Paging",
@@ -1904,118 +1904,118 @@
   "RootNamespace": "_50Pixels",
   "Documents": [
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_NavBar.cshtml",
-      "TargetPath": "Views\\Shared\\_NavBar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_GalleryWithPagination.cshtml",
-      "TargetPath": "Views\\Shared\\_GalleryWithPagination.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_ManageAccountChangePassword.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_ManageAccountChangePassword.cshtml",
       "TargetPath": "Views\\Shared\\_ManageAccountChangePassword.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Follow.cshtml",
-      "TargetPath": "Views\\Shared\\_Follow.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_NavBar.cshtml",
+      "TargetPath": "Views\\Shared\\_NavBar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Search/Results.cshtml",
-      "TargetPath": "Views\\Search\\Results.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Account/SignUp.cshtml",
-      "TargetPath": "Views\\Account\\SignUp.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Account/SignIn.cshtml",
-      "TargetPath": "Views\\Account\\SignIn.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Footer.cshtml",
-      "TargetPath": "Views\\Shared\\_Footer.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Photos/Upload.cshtml",
-      "TargetPath": "Views\\Photos\\Upload.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_ManageAccountDetails.cshtml",
-      "TargetPath": "Views\\Shared\\_ManageAccountDetails.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Header.cshtml",
-      "TargetPath": "Views\\Shared\\_Header.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Account/Profile.cshtml",
-      "TargetPath": "Views\\Account\\Profile.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Account/Manage.cshtml",
-      "TargetPath": "Views\\Account\\Manage.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Gallery.cshtml",
-      "TargetPath": "Views\\Shared\\_Gallery.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Photos/ViewPhoto.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Photos\\ViewPhoto.cshtml",
       "TargetPath": "Views\\Photos\\ViewPhoto.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Photos/Trending.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_GalleryWithPagination.cshtml",
+      "TargetPath": "Views\\Shared\\_GalleryWithPagination.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_Follow.cshtml",
+      "TargetPath": "Views\\Shared\\_Follow.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Photos\\Trending.cshtml",
       "TargetPath": "Views\\Photos\\Trending.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Photos/EditPhoto.cshtml",
-      "TargetPath": "Views\\Photos\\EditPhoto.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_Footer.cshtml",
+      "TargetPath": "Views\\Shared\\_Footer.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Shared/_ManageAccountChangePhoto.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Search\\Results.cshtml",
+      "TargetPath": "Views\\Search\\Results.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Account\\Profile.cshtml",
+      "TargetPath": "Views\\Account\\Profile.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Account\\SignUp.cshtml",
+      "TargetPath": "Views\\Account\\SignUp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_Gallery.cshtml",
+      "TargetPath": "Views\\Shared\\_Gallery.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_Header.cshtml",
+      "TargetPath": "Views\\Shared\\_Header.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Photos\\Upload.cshtml",
+      "TargetPath": "Views\\Photos\\Upload.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Account\\SignIn.cshtml",
+      "TargetPath": "Views\\Account\\SignIn.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_ManageAccountChangePhoto.cshtml",
       "TargetPath": "Views\\Shared\\_ManageAccountChangePhoto.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Error/ErrorNotFound.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Photos\\EditPhoto.cshtml",
+      "TargetPath": "Views\\Photos\\EditPhoto.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Shared\\_ManageAccountDetails.cshtml",
+      "TargetPath": "Views\\Shared\\_ManageAccountDetails.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Account\\Manage.cshtml",
+      "TargetPath": "Views\\Account\\Manage.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\Error\\ErrorNotFound.cshtml",
       "TargetPath": "Views\\Error\\ErrorNotFound.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\GregsonJamesMedel\\Documents\\50Pixels\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/media/medel/Master/Projects/50Pixels/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],
